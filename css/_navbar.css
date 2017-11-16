@@ -1,5 +1,35 @@
 .navBar{
     display: flex;
+    background: #323232;
+    color: #ffffff;
+    height: 65px;
+}
+
+.navList{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    font-family: Lato-Bold; 
+    font-size: 1em;
+    margin: 0px 5px; 
+    list-style: disc;
+    list-style-type: disc;
+}
+
+.navList li {
+    display: flex;
+    margin: 0.1em;    
+}
+
+.navList li:hover {
+color: var(--liHoverColor);
+}
+/* .itemWithDot{
+    text
+} */
+.navDot{
+    /* align-self: center; */
+    color: var(--liHoverColor);
 }
