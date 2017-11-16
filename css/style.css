@@ -1,6 +1,7 @@
 @import '_fonts.css';
 @import '_navbar.css';
 @import '_vars.css';
+@import '_footer.css';
 
 .container{
     width: 100vw;
