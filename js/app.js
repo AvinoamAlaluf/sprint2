@@ -1,3 +1,6 @@
+var canvas;
+var ctx;
+
 var gImgs = [{
         id: 1,
         url: 'img/gallery/danAsWorier.jpg',
@@ -45,4 +48,52 @@ var gMeme = {
         align: 'left',
         color: 'red'
     }]
+}
+
+
+//put html
+function buildGallery(gImgs){
+        var elImgs = document.querySelector('.gallery');
+        var strHtmls = '';
+        gImgs.forEach(function (id,text) {
+            var strHtml = `
+                    
+            `
+            strHtmls += strHtml
+        });
+        elImgs.innerHTML = strHtmls;
+}
+    
+    
+
+
+function init() {
+    canvas = document.getElementById('canvas');
+    ctx = canvas.getContext('2d');
+    drawOnCanvas();
+}
+
+
+
+function drawOnCanvas() {
+    var img = new Image();
+    img.src = "img/meme.png";
+
+    img.onload = function () {
+        ctx.drawImage(img, 0, 0, 568, 360);
+
+        ctx.font = "50px 'Segoe UI'";
+        ctx.fillStyle = 'white';
+        ctx.fillText("Text on Canvas", 50, 300);
+    };
+}
+
+/**
+* This is the function that will take care of image extracting and
+* setting proper filename for the download.
+* IMPORTANT: Call it from within a onclick event.
+*/
+function downloadImg(elLink) {
+    elLink.href = canvas.toDataURL();
+    elLink.download = 'perfectMeme.jpg';
 }
