@@ -1,5 +1,9 @@
 @import '_footer.css';
+@import '_fonts.css';
+@import '_navbar.css';
+@import '_vars.css';
+
 .container{
     width: 100vw;
+    background: gray;
 }
-
