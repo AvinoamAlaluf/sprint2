@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Sprint #2</title>
-    <link rel="stylesheet" href="lib/normalize.css">
+    <!-- <link rel="stylesheet" href="lib/normalize.css"> -->
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css'>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css' />
     <link rel="stylesheet" href="css/style.css">
@@ -20,7 +20,7 @@
                 <li>Portfolio</li>
                 <li class="navDot">·</li>
                 <li>About</li>
-                <li>
+                <li class="navLogo">
                     <img src="img/navbar/NavArrow.png" />
                 </li>
                 <li>Blog</li>
@@ -29,8 +29,68 @@
             </ul>
         </nav>
     </div>
+    <div class="underNav">
+        <hr class="navHr">
+        <img src="img/navbar/NavDownArrowPic.png" />
+        <hr class="navHr">
+    </div>
 
-    <div class="footer">
+    <div class="container">
+        <div class="searchSector">
+            <label>Search :  </label>
+            <input class="searchInput" type="text" placeholder="Search A Meme"/>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="gallery">
+            <ul class="galleryList">
+                <li class="galleryItem">
+                    <ul class="itemFather">
+                        <li class="imageItem">
+                            <img src="img/gallery/firstImage.jpg" /> </li>
+                        <!-- SMALLER ITEM 30-40% of screen -->
+                        <li class="textItem">MAKE ME A MEME.TXT</li>
+                        <!-- BIGGER ITEM 60% of screen -->
+                    </ul>
+                </li>
+                <li class="galleryItem">
+                    <ul class="itemFather">
+                        <li class="imageItem">
+                            <img src="img/gallery/firstImage.jpg" /> </li>
+                        <!-- SMALLER ITEM 30-40% of screen -->
+                        <li class="textItem">MAKE ME A MEME.TXT</li>
+                        <!-- BIGGER ITEM 60% of screen -->
+                    </ul>
+                </li>
+                <li class="galleryItem">
+                    <ul class="itemFather">
+                        <li class="imageItem">
+                            <img src="img/gallery/firstImage.jpg" /> </li>
+                        <!-- SMALLER ITEM 30-40% of screen -->
+                        <li class="textItem">MAKE ME A MEME.TXT</li>
+                        <!-- BIGGER ITEM 60% of screen -->
+                    </ul>
+                </li>
+                <li class="galleryItem">
+                    <ul class="itemFather">
+                        <li class="imageItem">
+                            <img src="img/gallery/firstImage.jpg" /> </li>
+                        <!-- SMALLER ITEM 30-40% of screen -->
+                        <li class="textItem">MAKE ME A MEME.TXT</li>
+                        <!-- BIGGER ITEM 60% of screen -->
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+    <!-- NEED TO FIX SIZING AND NAME OF WHAT IS CURRENTLY FOOTER -->
+
+
+
+    <!-- <div class="footer">
         <div class="inner-footer">
             <div class="card-person">
                 <h2>Avinoa alaluf</h2>
@@ -42,12 +102,12 @@
             </div>
 
 
-        </div>
+        </div> -->
 
 
 
     </div>
-    <script src="js/main.js"></script>
+    <script src="js/app.js"></script>
 </body>
 
 </html>

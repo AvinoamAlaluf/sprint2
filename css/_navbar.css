@@ -10,26 +10,34 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     font-family: Lato-Bold; 
-    font-size: 1em;
-    margin: 0px 5px; 
-    list-style: disc;
-    list-style-type: disc;
+    font-size: 0.64em;
+
 }
 
 .navList li {
     display: flex;
-    margin: 0.1em;    
+    margin: 0.05em;    
 }
 
 .navList li:hover {
 color: var(--liHoverColor);
 }
-/* .itemWithDot{
-    text
-} */
+
 .navDot{
-    /* align-self: center; */
     color: var(--liHoverColor);
+}
+
+.underNav{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.navHr{
+    flex-grow: 1;
+    margin: 0 10px;
 }
