@@ -25,9 +25,13 @@
     align-items: stretch;
 }
 
+/* SIZES MATCH FOR MOBILE FIRST SMALLEST PHONE (340PX), SHOULD BE CHANGED IN MEDIA QUERIES */
+/* IF LEAVING ONLY "imageItem" WIDTH:33.3333% IT STAYS GOOD TILL STRECH OF 650px WIDTH(PICTURE DOESN'T STAY SQUARE) */
 .imageItem{
-    /* width: 33.3333%; */
-    max-width: 250px;
+    width: 33.3333%;
+    /* height: 60px;
+    min-height: 60px;
+    max-height: auto; */
 }
 
 .imageItem img{
@@ -40,8 +44,12 @@
 
 .textItem{
     align-self: center;
-    width: 77.7777%;
-    font-size: 0.8em;
+    width: 77.7777%; 
+    max-width: 77.7777%; 
+    font-size: 0.9em;
+    font-family: Lato-Bold;
+    /* color: white; */
+    font-weight: bold;
     margin: 8px;
 }
 
