@@ -3,6 +3,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    border: 3px solid lightgray;
 }
 
 .inner-footer {
@@ -12,6 +13,7 @@
     align-items: center;
     justify-content: space-between;
     flex-direction: column;
+    
 }
 
 .card-person {
@@ -23,6 +25,7 @@
     /* align-items: center; */
     justify-content: space-between;
     margin: 20px 0;
+    border: 3px solid lightgray;
 }
 
 .card-person > img {
