@@ -5,37 +5,37 @@ var gImgs = [{
     id: 1,
     url: 'img/gallery/1.jpg',
     text: "dan as worier",
-    keywords: ['strong', 'happy']
+    keywords: ['strong', 'powerfull','sexy']
 },
 {
     id: 2,
     url: 'img/gallery/danWithAHat.jpg',
     text: "dan With A Hat",
-    keywords: ['peaceful']
+    keywords: ['peaceful','sweet','nice']
 },
 {
     id: 3,
     url: 'img/gallery/danWithBear.jpg',
-    text: "dan With A Hat",
-    keywords: ['satisfied']
+    text: "dan With Bear",
+    keywords: ['satisfied','happy']
 },
 {
     id: 4,
     url: 'img/gallery/yaronAndAsafWithSpoons.jpg',
     text: "yaron And Asaf With Spoons",
-    keywords: ['happy']
+    keywords: ['happy','satisfied','weired']
 },
 {
     id: 5,
     url: 'img/gallery/yaronSurprised.jpg',
     text: "yaron Surprised",
-    keywords: ['Surprised']
+    keywords: ['Surprised','investigator']
 },
 {
     id: 6,
     url: 'img/gallery/yaronWithPhone.jpg',
     text: "yaron With Phone",
-    keywords: ['tech oriented']
+    keywords: ['tech oriented','inspiring','strong']
 }
 ];
 
@@ -51,7 +51,7 @@ var gMeme = {
 }
 
 buildGallery(gImgs);
-// drawOnCanvas();
+drawOnCanvas();
 
 //put html
 function buildGallery(imgs) {
@@ -64,9 +64,7 @@ function buildGallery(imgs) {
                 <ul class="itemFather">
                     <li class="imageItem">
                         <img src= "${img.url}"/> </li>
-                    <!-- SMALLER ITEM 30-40% of screen -->
                     <li class="textItem">${img.text}</li>
-                    <!-- BIGGER ITEM 60% of screen -->
                 </ul>
             </li>
         </ul> `
