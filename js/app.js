@@ -3,7 +3,7 @@ var ctx;
 
 var gImgs = [{
         id: 1,
-        url: 'img/gallery/danAsWorier.jpg',
+        url: 'img/gallery/1.jpg',
         text: "dan as worier",
         keywords: ['strong']
     },
@@ -21,19 +21,19 @@ var gImgs = [{
     },
     {
         id: 4,
-        url: 'img/yaronAndAsafWithSpoons',
+        url: 'img/gallery/yaronAndAsafWithSpoons.jpg',
         text: "yaron And Asaf With Spoons",
         keywords: ['happy']
     },
     {
         id: 5,
-        url: 'img/yaronSurprised',
+        url: 'img/gallery/yaronSurprised.jpg',
         text: "yaron Surprised",
         keywords: ['Surprised']
     },
     {
         id: 6,
-        url: 'img/yaronWithPhone',
+        url: 'img/gallery/yaronWithPhone.jpg',
         text: "yaron With Phone",
         keywords: ['tech oriented']
     }
@@ -50,49 +50,58 @@ var gMeme = {
     }]
 }
 
+buildGallery(gImgs);
+drawOnCanvas();
 
 //put html
-function buildGallery(gImgs){
-        var elImgs = document.querySelector('.gallery');
-        var strHtmls = '';
-        gImgs.forEach(function (id,text) {
-            var strHtml = `
-                    
-            `
-            strHtmls += strHtml
-        });
-        elImgs.innerHTML = strHtmls;
-}
-    
-    
+function buildGallery(gImgs) {
+    var elImgs = document.querySelector('.gallery');
+    var strHtmls = '';
+    gImgs.forEach(function (img) {
+        console.log(img.url);
+        var strHtml = `<ul class="galleryList">
+            <li class="galleryItem">
+                <ul class="itemFather">
+                    <li class="imageItem">
+                        <img src= "${img.url}"/> </li>
+                    <!-- SMALLER ITEM 30-40% of screen -->
+                    <li class="textItem">MAKE ME A MEME.TXT</li>
+                    <!-- BIGGER ITEM 60% of screen -->
+                </ul>
+            </li>
+        </ul> `
 
 
-function init() {
-    canvas = document.getElementById('canvas');
-    ctx = canvas.getContext('2d');
-    drawOnCanvas();
+        strHtmls += strHtml
+    });
+    elImgs.innerHTML = strHtmls;
 }
 
 
 
 function drawOnCanvas() {
+    var canvas = document.getElementById('canvas');
+    var ctx = canvas.getContext('2d');
     var img = new Image();
-    img.src = "img/meme.png";
+    img.src = "img/gallery/danWithBear.jpg";
 
     img.onload = function () {
         ctx.drawImage(img, 0, 0, 568, 360);
 
         ctx.font = "50px 'Segoe UI'";
         ctx.fillStyle = 'white';
-        ctx.fillText("Text on Canvas", 50, 300);
+        ctx.fillText("בתאכלסססס", 50, 300);
     };
 }
 
+
+
+
 /**
-* This is the function that will take care of image extracting and
-* setting proper filename for the download.
-* IMPORTANT: Call it from within a onclick event.
-*/
+ * This is the function that will take care of image extracting and
+ * setting proper filename for the download.
+ * IMPORTANT: Call it from within a onclick event.
+ */
 function downloadImg(elLink) {
     elLink.href = canvas.toDataURL();
     elLink.download = 'perfectMeme.jpg';
