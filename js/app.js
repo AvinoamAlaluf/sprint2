@@ -69,6 +69,11 @@ var memeChoise = {
 }
 
 var gCanvas = document.querySelector('.canvasInEditor');
+var elGallery = document.querySelector('.gallery');
+var elMeme = document.querySelector('.memeEditor');
+var elMemePopUp = document.querySelector('.memeEditorPopup');
+var elColorPopUp = document.querySelector('.colorEditorPopup');
+var elInput = document.querySelector('.canvas-text');
 
 function init() {
     buildGallery(gImgs);
@@ -77,7 +82,7 @@ function init() {
 
 
 function buildGallery(imgs) {
-    var elGallery = document.querySelector('.gallery');
+    showGallery();//show gullery hide meme
     var strHtmls = '';
     imgs.forEach(function (img) {
         console.log(img.url);
@@ -101,7 +106,8 @@ function makeMeme(imgId) {
 }
 //CR: instead of paramter work on the global memeChoise
 function drawImgOnCanvas(imgId) {
-
+    showMeme();//show meme hide gallery
+    var txt = memeChoise.text;
     var ctx = gCanvas.getContext('2d');
     var img = new Image();
     img.src = memeChoise.url;
@@ -110,67 +116,70 @@ function drawImgOnCanvas(imgId) {
         ctx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height);
         ctx.font = memeChoise.fontSize + " " + memeChoise.fontFamily;
         ctx.fillStyle = memeChoise.fontColor;
-        //  ctx.textAlign = memeChoise.textAlign;
-        ctx.strokeText(memeChoise.text, memeChoise.positionX, memeChoise.positionY);
-        ctx.fillText(memeChoise.text, memeChoise.positionX, memeChoise.positionY);
+        if (memeChoise.upperCase) { //if upper casa
+            var upper = txt.toUpperCase();
+            ctx.strokeText(upper, memeChoise.positionX, memeChoise.positionY);
+            ctx.fillText(upper, memeChoise.positionX, memeChoise.positionY);
+        } else { //if not upper case
+            ctx.strokeText(txt, memeChoise.positionX, memeChoise.positionY);
+            ctx.fillText(txt, memeChoise.positionX, memeChoise.positionY);
 
-    };
-    ctx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height);
-    ctx.font = memeChoise.fontSize + " " + memeChoise.fontFamily;
-    ctx.fillStyle = memeChoise.fontColor;
-    // ctx.textAlign = memeChoise.textAlign;
-    if(memeChoise.upperCase){
-        ctx.strokeText(memeChoise.text.toUpperCase(), memeChoise.positionX, memeChoise.positionY);
-        ctx.fillText(memeChoise.text.toUpperCase(), memeChoise.positionX, memeChoise.positionY);    
+        };
     }
-    else{ctx.strokeText(memeChoise.text, memeChoise.positionX, memeChoise.positionY);
-    ctx.fillText(memeChoise.text, memeChoise.positionX, memeChoise.positionY);
-    }
-
-
 }
+
+function showGallery(){//should change into a global function for everything
+    elGallery.style.display = "block";
+    elMeme.style.display = "none";
+    elMemePopUp.style.display = "none";
+    elColorPopUp.style.display = "none";
+    elInput.value = '';//clear input value
+    memeChoise.text = '';//reser text
+}
+
+function showMeme(){
+    elGallery.style.display = "none";//the cointener needis to be none as well?????
+    elMeme.style.display = "block";//show meme element
+    elMemePopUp.style.display = "block";//show popup meme elment
+    elColorPopUp.style.display = "block";//show popup color 
+}
+
+
 // CR: you use the dom element and not his value.
 function inputText() {
-    memeChoise.text = document.querySelector('.canvas-text').value;
+    memeChoise.text = elInput.value;
+    //  memeChoise.upperText = memeChoise.text.
     drawImgOnCanvas(memeChoise.id);
 
 }
 
 function changeMemeOb(x) {
-    if (x.className === 'textSize') {
-        memeChoise.fontSize = x.value;
-    } else if (x.className === 'textAlign') {
-        switch (x.value) {
-            case 'left':
-                memeChoise.positionX = 10;
-                memeChoise.positionY = 100;
-                break;
-            case 'center':
-                memeChoise.positionX = gCanvas.width / 2;
-                memeChoise.positionY = 100;
-                break;
-            case 'right':
-                memeChoise.positionX = gCanvas.width - 50;
-                memeChoise.positionY = 100;
-                break;
-        }
-    } else if (x.localName === 'a') {
-        memeChoise.fontFamily = x.innerText;
-
-    }else if(x.className === 'textUppercase'){
-        if (document.querySelector('.textUppercase').checked === true){
-        memeChoise.upperCase = true;
-        }else 
-        memeChoise.upperCase = false;
+    var className = x.className;
+    switch (className) {
+        case 'font':
+            memeChoise.fontFamily = x.innerText;
+            break;
+        case 'textSize':
+            memeChoise.fontSize = x.value;
+            break;
+        case 'fa fa-arrow-up fa-2x iconSpace':
+            memeChoise.positionY = memeChoise.positionY - 2;
+            break;
+        case 'fa fa-arrow-down fa-2x iconSpace':
+            memeChoise.positionY = memeChoise.positionY + 2;
+            break;
+        case 'arrow-right'://TODO in html
+            memeChoise.positionX = memeChoise.positionX + 2;
+            break;
+        case 'arrow-left'://TODO in html 
+            memeChoise.positionX = memeChoise.positionX - 2;
+            break;
+        case 'textUppercase':
+            memeChoise.upperCase = document.querySelector('.textUppercase').checked;
+            break;
     }
 
-
     drawImgOnCanvas(memeChoise.id);
-    /*  if (x.class === 'textWeight') {
-          memeChoise.fontWeight = x.value;
-      }*/
-
-    // memeChoise.fontColor = "white";
 
 }
 
@@ -255,4 +264,4 @@ function makeKeywordsBigger() { //only takes place in div class="keywordsPopular
 function downloadImg(elLink) {
     elLink.href = gCanvas.toDataURL();
     elLink.download = 'myMeme.jpg';
- }
+}
