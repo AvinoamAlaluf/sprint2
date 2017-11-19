@@ -55,7 +55,7 @@ var gKeywordsMap = createKeywordsMapObj(gImgs);
 // look at the pdf for good example.
 var memeChoise = {
     url: "img/gallery/danWithBear.jpg",
-    fontSize: 60,
+    fontSize: 16,
     fontFamily: "Georgia",
     text: " ",
     positionX: 10,
@@ -128,15 +128,15 @@ function inputText() {
 function changeMemeOb(x) {
     if (x.className === 'textSize') {
         memeChoise.fontSize = x.value;
-        
+
     }
     drawImgOnCanvas(memeChoise.id);
-      /*  if (x.class === 'textWeight') {
-            memeChoise.fontWeight = x.value;
-        }*/
-       
-        // memeChoise.fontColor = "white";
-    
+    /*  if (x.class === 'textWeight') {
+          memeChoise.fontWeight = x.value;
+      }*/
+
+    // memeChoise.fontColor = "white";
+
 }
 
 /**
