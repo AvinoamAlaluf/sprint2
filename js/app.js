@@ -103,6 +103,7 @@ function drawImgOnCanvas(imgId) {
     var ctx = canvas.getContext('2d');
     var img = new Image();
     img.src = memeChoise.url;
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
     img.onload = function () {
         ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
         ctx.font = memeChoise.fontSize + "px " + memeChoise.fontFamily;
@@ -110,6 +111,11 @@ function drawImgOnCanvas(imgId) {
         ctx.fillText(memeChoise.text, 50, 150);
 
     };
+
+    ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+    ctx.font = memeChoise.fontSize + " " + memeChoise.fontFamily;
+    ctx.fillStyle = memeChoise.fontColor;
+    ctx.fillText(memeChoise.text, 50, 150);
 
 }
 // CR: you use the dom element and not his value.
