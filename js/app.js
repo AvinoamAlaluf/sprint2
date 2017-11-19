@@ -101,22 +101,14 @@ function drawImgOnCanvas(imgId){
         ctx.drawImage(img, 0, 0,canvas.width,canvas.height);
         ctx.font = memeChoise.fontSize +"px " + memeChoise.fontFamily;
         ctx.fillStyle = memeChoise.fontColor;
-        ctx.fillText(memeChoise.text,canvas.width-250,canvas.height-50);
+        ctx.fillText(memeChoise.text,50,150);
            
     };
-    alert("pic");
-    drawTextonCanvas(memeChoise);
+    
 }
 
 
-function drawTextonCanvas(memeChoise){
-    var canvas = document.querySelector('.canvasInEditor');
-    var ctx = canvas.getContext('2d');
-    ctx.font = memeChoise.fontSize +"px " + memeChoise.fontFamily;
-    ctx.fillStyle = memeChoise.fontColor;
-    ctx.fillText(memeChoise.text,50,50);
 
-}
 /*
 
 function drawOnCanvas(memeChoise) {
