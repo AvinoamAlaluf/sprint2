@@ -54,7 +54,7 @@
             <h2>Meme It</h2>
             <div class="toolBar">
                 <i class="fa fa-font fa-1x textEditor" aria-hidden="true" onclick="toggleMemeEditorPopup()"></i>
-                <i class="fa fa-paint-brush colorEditor" aria-hidden="true"></i>
+                <i class="fa fa-paint-brush colorEditor" aria-hidden="true" onclick="toggleColorEditorPopup()"></i>
 
             </div>
             <canvas class="canvasInEditor"></canvas>
@@ -101,10 +101,20 @@
             </div>
             <div class="textEditorButtons">
                 <!-- BtnOK SHOULD CAHNGE THE CANVAS BY THE ".memeEditorPopup" SETTINGS -->
-                <span class="btnOk"onclick="toggleMemeEditorPopup() ">Ok</span>
-                <span class="btnCancle"onclick="toggleMemeEditorPopup()">Cancle</span>
+                <span class="btnOk" onclick="toggleMemeEditorPopup() ">Ok</span>
+                <span class="btnCancle" onclick="toggleMemeEditorPopup()">Cancle</span>
             </div>
-
+        </div>
+    </div>
+    <div class="container">
+        <div class="hidden colorEditorPopup">
+            <span>Pick A Color For The Text</span>
+            <input type="color" class="colorPicker">
+            <div class="colorEditorButtons ">
+                <!-- BtnOK SHOULD CAHNGE THE CANVAS BY THE ".memeEditorPopup" SETTINGS -->
+                <span class="btnOk" onclick="toggleColorEditorPopup() ">Ok</span>
+                <span class="btnCancle" onclick="toggleColorEditorPopup()">Cancle</span>
+            </div>
         </div>
     </div>
 
