@@ -208,3 +208,8 @@ function makeKeywordsBigger() { //only takes place in div class="keywordsPopular
     var elKeywordsPopularity = document.querySelector('.keywordsPopularity');
     elKeywordsPopularity.innerHTML = strHtml;
 }
+
+function downloadImg(elLink) {
+    elLink.href = gCanvas.toDataURL();
+    elLink.download = 'myMeme.jpg';
+ }

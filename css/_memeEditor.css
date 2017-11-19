@@ -25,16 +25,12 @@
     /* margin: 5px 0px; */
 }
 
-.textEditor {
-    
-}
 .colorEditor{
     color: rgb(221, 81, 81);
 }
 
 .canvasInEditor{
-    width: 100%;
-  
+    width: 100%;  
 }
 
 .canvas-continer{
@@ -163,7 +159,16 @@
     border: 1px solid white;
     color: white;
 }
+ .textMoveLines{
+     padding: 5px 0;
+     margin: 5px 0;
+ }
 
-/* .hidden{
-    display: none;
-} */
+.iconSpace{
+    padding: 2.5px;
+}
+
+.saveButton{
+    text-decoration: none;
+    color: inherit;
+}
