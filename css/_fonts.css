@@ -15,9 +15,7 @@
 
 @font-face {
     font-family: Maven-Pro-Regular;
-    src: url("MavenPro-Regular.ttf");
-    font-weight: normal;
-    font-style: normal;
+    src: url('MavenPro-Regular.ttf');
 }
 
 

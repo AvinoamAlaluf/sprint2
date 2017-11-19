@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Sprint #2</title>
     <!-- <link rel="stylesheet" href="lib/normalize.css"> -->
+    <link href="https://fonts.googleapis.com/css?family=Maven+Pro" rel="stylesheet">
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css'>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css' />
     <link rel="stylesheet" href="css/style.css">
@@ -53,15 +54,15 @@
         <div class="memeEditor">
             <h2>Meme It</h2>
             <div class="toolBar">
-                <i class="fa fa-font fa-1x textEditor" aria-hidden="true" onclick="toggleMemeEditorPopup()"></i>
-                <i class="fa fa-paint-brush colorEditor" aria-hidden="true" onclick="toggleColorEditorPopup()"></i>
-
+                <i class="fa fa-long-arrow-left fa-2x" aria-hidden="true"> Back To Gallery</i>
             </div>
             <div class="canvas-continer">
                 <canvas class="canvasInEditor"></canvas>
-                <input  class ="canvas-text" oninput="inputText()" type="text" />
+                <input class="canvas-text" oninput="inputText()" type="text" />
             </div>
-            <i class="fa fa-floppy-o fa-2x saveButton" aria-hidden="true"></i>
+            <a href="#" id="download" class="saveButton" onclick="downloadImg(this)">
+                <i class="fa fa-floppy-o fa-2x saveButton" aria-hidden="true"></i>
+            </a>
         </div>
     </div>
 
@@ -86,11 +87,25 @@
                 Text-Align:
                 <input type="radio" name="textAlign" class="textAlign" value="left" onclick=changeMemeOb(this)> Left
                 <input type="radio" name="textAlign" class="textAlign" value="center" onclick=changeMemeOb(this) checked> Center
-                <input type="radio" name="textAlign" class="textAlign" value="right" onclick=changeMemeOb(this) > Right
+                <input type="radio" name="textAlign" class="textAlign" value="right" onclick=changeMemeOb(this)> Right
             </div>
             <div class="textUppercaseEditor">
                 Upper-Case:
                 <input type="checkbox" class="textUppercase" onclick=changeMemeOb(this)>
+            </div>
+            <div class="textUppercaseEditor">
+                Text-Shadow:
+                <input type="checkbox" class="textShadow">
+            </div>
+            <div class="textMoveLines">
+                Move The Text Box:
+                <i class="fa fa-arrow-up fa-2x iconSpace" aria-hidden="true"></i>
+                <i class="fa fa-arrow-down fa-2x iconSpace" aria-hidden="true"></i>
+            </div>
+            <div class="textBoxActions">
+                Add/Remove Text Box:
+                <i class="fa fa-trash-o fa-2x iconSpace" aria-hidden="true"></i>
+                <i class="fa fa-plus fa-2x iconSpace" aria-hidden="true"></i>
             </div>
             <!-- SHOULD CHECK CONNECTION IN DDMENU AND REST OF INPUT -->
             <div class="dropdown textFontFamilyEditor">
@@ -121,34 +136,36 @@
         </div>
     </div>
 
-
-    <div class="about">
-        <div class="inner-about">
+    <div class="container">
+        <div class="about">
             <div class="card-person">
-                <h2>Avinoam alaluf</h2>
                 <img src="img/crew/pictureAvinoam.jpg" />
-                <h2> Web Developer</h2>
-                <p class="about-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt. ut labore et dolore
-                    magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                    commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                    nulla.
-                </p>
+                <div class="personDetails">
+                    <h2>Avinoam Alaluf</h2>
+                    <h3> Web Developer</h3>
+                    <p class="about-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt. ut labore
+                        et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                        aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+                        dolore eu fugiat nulla.
+                    </p>
+                </div>
             </div>
             <div class="card-person">
-                <h2>Larisa shousterman</h2>
                 <img src="img/crew/pictureLarisa.jpg" />
-                <h2> Web Developer</h2>
-                <p class="about-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt. ut labore et dolore
-                    magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                    commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                    nulla.
-                </p>
+                <div class="personDetails">
+                    <h2>Larisa Shousterman</h2>
+                    <h3> Web Developer</h3>
+                    <p class="about-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt. ut labore
+                        et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                        aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+                        dolore eu fugiat nulla.
+                    </p>
+                </div>
             </div>
         </div>
     </div>
-
+    
     <div class="keywordsPopularity">
-
     </div>
 
 
