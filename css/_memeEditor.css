@@ -1,0 +1,47 @@
+.memeEditor{
+    width:95%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    font-family: Lato-Bold;
+    color: white;
+}
+
+.memeEditor h2{
+    font-size: 1.2em;
+    padding: 5px 0px;
+}
+
+.toolBar{
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;   
+    padding: 5px 0px;
+    /* margin: 5px 0px; */
+}
+
+.textEditor {
+    
+}
+.colorEditor{
+    color: rgb(221, 81, 81);
+}
+
+.canvasInEditor{
+    width: 100%;
+    margin: 0 auto;    
+    border: 1px solid white;
+    margin: 5px 0px;
+}
+
+
+/* ////////CANVAS EDITOR POPUPS /////////// */
+
+.memeEditorPopup{
+    font-size: 0.8em;
+    font-family: Lato-Regular;
+}

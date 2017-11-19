@@ -4,6 +4,7 @@
 @import '_vars.css';
 @import '_footer.css';
 @import '_gallery.css';
+@import '_memeEditor.css';
 
 .container{
     width: 100vw;
