@@ -2,15 +2,14 @@
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     border: 3px solid lightgray;
 }
 
 .inner-about {
     display: flex;
     max-width: 823px;
-    max-height: 335px;
-    width: 100%;
+    width: 80%;
     background-color: #2fb299;
     align-items: center;
     justify-content: center;
@@ -25,12 +24,10 @@
     align-items: center;
     justify-content: space-between;
     margin: 40px;
-    /* flex-direction: column; */
+    flex-direction: column; 
    
 
 }
-
-
  .card-person > img { 
     background-color: #2fb299;
     max-width: 180px;
@@ -50,4 +47,5 @@
     color: white; 
 
 }
+
 
