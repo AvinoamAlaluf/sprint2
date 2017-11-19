@@ -1,42 +1,43 @@
+"use strict";
 var canvas;
 var ctx;
 
 var gImgs = [{
-    id: 1,
-    url: 'img/gallery/1.jpg',
-    text: "dan as worier",
-    keywords: ['strong', 'powerfull', 'sexy']
-},
-{
-    id: 2,
-    url: 'img/gallery/danWithAHat.jpg',
-    text: "dan With A Hat",
-    keywords: ['peaceful', 'sweet', 'nice']
-},
-{
-    id: 3,
-    url: 'img/gallery/danWithBear.jpg',
-    text: "dan With Bear",
-    keywords: ['satisfied', 'happy']
-},
-{
-    id: 4,
-    url: 'img/gallery/yaronAndAsafWithSpoons.jpg',
-    text: "yaron And Asaf With Spoons",
-    keywords: ['happy', 'satisfied', 'weired']
-},
-{
-    id: 5,
-    url: 'img/gallery/yaronSurprised.jpg',
-    text: "yaron Surprised",
-    keywords: ['Surprised', 'investigator']
-},
-{
-    id: 6,
-    url: 'img/gallery/yaronWithPhone.jpg',
-    text: "yaron With Phone",
-    keywords: ['tech oriented', 'inspiring', 'strong']
-}
+        id: 1,
+        url: 'img/gallery/1.jpg',
+        text: "dan as worier",
+        keywords: ['strong', 'powerfull', 'sexy']
+    },
+    {
+        id: 2,
+        url: 'img/gallery/danWithAHat.jpg',
+        text: "dan With A Hat",
+        keywords: ['peaceful', 'sweet', 'nice']
+    },
+    {
+        id: 3,
+        url: 'img/gallery/danWithBear.jpg',
+        text: "dan With Bear",
+        keywords: ['satisfied', 'happy']
+    },
+    {
+        id: 4,
+        url: 'img/gallery/yaronAndAsafWithSpoons.jpg',
+        text: "yaron And Asaf With Spoons",
+        keywords: ['happy', 'satisfied', 'weired']
+    },
+    {
+        id: 5,
+        url: 'img/gallery/yaronSurprised.jpg',
+        text: "yaron Surprised",
+        keywords: ['Surprised', 'investigator']
+    },
+    {
+        id: 6,
+        url: 'img/gallery/yaronWithPhone.jpg',
+        text: "yaron With Phone",
+        keywords: ['tech oriented', 'inspiring', 'strong']
+    }
 ];
 
 
@@ -55,15 +56,19 @@ var gKeywordsMap = createKeywordsMapObj(gImgs);
 // look at the pdf for good example.
 var memeChoise = {
     url: "img/gallery/danWithBear.jpg",
-    fontSize: 16,
+    fontSize: "16px",
     fontFamily: "Georgia",
     text: " ",
+    upperCase: false,
     positionX: 10,
     positionY: 50,
     fontColor: "white",
+    textAlign: "",
     id: 0
 
 }
+
+var gCanvas = document.querySelector('.canvasInEditor');
 
 function init() {
     buildGallery(gImgs);
@@ -96,18 +101,32 @@ function makeMeme(imgId) {
 }
 //CR: instead of paramter work on the global memeChoise
 function drawImgOnCanvas(imgId) {
-    var canvas = document.querySelector('.canvasInEditor');
-    var ctx = canvas.getContext('2d');
+
+    var ctx = gCanvas.getContext('2d');
     var img = new Image();
     img.src = memeChoise.url;
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.clearRect(0, 0, gCanvas.width, gCanvas.height);
     img.onload = function () {
-        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-        ctx.font = memeChoise.fontSize + "px " + memeChoise.fontFamily;
+        ctx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height);
+        ctx.font = memeChoise.fontSize + " " + memeChoise.fontFamily;
         ctx.fillStyle = memeChoise.fontColor;
-        ctx.fillText(memeChoise.text, 50, 150);
+        //  ctx.textAlign = memeChoise.textAlign;
+        ctx.strokeText(memeChoise.text, memeChoise.positionX, memeChoise.positionY);
+        ctx.fillText(memeChoise.text, memeChoise.positionX, memeChoise.positionY);
 
     };
+    ctx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height);
+    ctx.font = memeChoise.fontSize + " " + memeChoise.fontFamily;
+    ctx.fillStyle = memeChoise.fontColor;
+    // ctx.textAlign = memeChoise.textAlign;
+    if(memeChoise.upperCase){
+        ctx.strokeText(memeChoise.text.toUpperCase(), memeChoise.positionX, memeChoise.positionY);
+        ctx.fillText(memeChoise.text.toUpperCase(), memeChoise.positionX, memeChoise.positionY);    
+    }
+    else{ctx.strokeText(memeChoise.text, memeChoise.positionX, memeChoise.positionY);
+    ctx.fillText(memeChoise.text, memeChoise.positionX, memeChoise.positionY);
+    }
+
 
 }
 // CR: you use the dom element and not his value.
@@ -118,10 +137,34 @@ function inputText() {
 }
 
 function changeMemeOb(x) {
-    if (x.class === 'textSize') {
+    if (x.className === 'textSize') {
         memeChoise.fontSize = x.value;
+    } else if (x.className === 'textAlign') {
+        switch (x.value) {
+            case 'left':
+                memeChoise.positionX = 10;
+                memeChoise.positionY = 100;
+                break;
+            case 'center':
+                memeChoise.positionX = gCanvas.width / 2;
+                memeChoise.positionY = 100;
+                break;
+            case 'right':
+                memeChoise.positionX = gCanvas.width - 50;
+                memeChoise.positionY = 100;
+                break;
+        }
+    } else if (x.localName === 'a') {
+        memeChoise.fontFamily = x.innerText;
 
+    }else if(x.className === 'textUppercase'){
+        if (document.querySelector('.textUppercase').checked === true){
+        memeChoise.upperCase = true;
+        }else 
+        memeChoise.upperCase = false;
     }
+
+
     drawImgOnCanvas(memeChoise.id);
     /*  if (x.class === 'textWeight') {
           memeChoise.fontWeight = x.value;
