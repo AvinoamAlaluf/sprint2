@@ -53,7 +53,13 @@ var gMeme = {
 var gKeywordsMap = createKeywordsMapObj(gImgs);
 
 var memechoise = {
-    font:
+    fonSize: 20,
+    fontFamily: 'Segoe UI',
+    text:'בתאכלסס',
+    positionX: 50,
+    positionY: 300,
+    fontColor: "white"
+
 
 }
 
@@ -94,9 +100,9 @@ function drawOnCanvas(memechoise) {
     img.onload = function () {
         ctx.drawImage(img, 0, 0,canvas.width,canvas.height);
 
-        ctx.font = "50px 'Segoe UI'";
-        ctx.fillStyle = 'white';
-        ctx.fillText("בתאכלסססס", 50, 300);
+        ctx.font = `${memeChoise.fonSize} + "px" + ${memeChoise.fontFamily}`;
+        ctx.fillStyle = `${memeChoise.fontColor}`;
+        ctx.fillText = `(${memeChoise.text},${memeChoise.x} ,${memeChoise.y})`;
     };
 }
 
