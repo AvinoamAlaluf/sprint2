@@ -65,8 +65,9 @@ var memeChoise = {
 }
 function init(){
 buildGallery(gImgs);
-drawOnCanvas(memeChoise);
+//drawOnCanvas(memeChoise);
 }
+
 
 function buildGallery(imgs) {
     var elGallery = document.querySelector('.gallery');
@@ -74,7 +75,7 @@ function buildGallery(imgs) {
     imgs.forEach(function (img) {
         console.log(img.url);
         var strHtml = `<ul class="galleryList">
-            <li class="galleryItem">
+            <li class="galleryItem" onclick= drawImgOnCanvas(${img.id})>
                 <ul class="itemFather">
                     <li class="imageItem">
                         <img src= "${img.url}"/> </li>
@@ -90,9 +91,36 @@ function buildGallery(imgs) {
 }
 
 
+function drawImgOnCanvas(imgId){
+    memeChoise.url = gImgs[imgId-1].url; //updta the meme object wiyh the right url
+    var canvas = document.querySelector('.canvasInEditor');
+    var ctx = canvas.getContext('2d');
+    var img = new Image();
+    img.src = memeChoise.url;
+    img.onload = function () {
+        ctx.drawImage(img, 0, 0,canvas.width,canvas.height);
+        ctx.font = memeChoise.fontSize +"px " + memeChoise.fontFamily;
+        ctx.fillStyle = memeChoise.fontColor;
+        ctx.fillText(memeChoise.text,canvas.width-250,canvas.height-50);
+           
+    };
+    alert("pic");
+    drawTextonCanvas(memeChoise);
+}
+
+
+function drawTextonCanvas(memeChoise){
+    var canvas = document.querySelector('.canvasInEditor');
+    var ctx = canvas.getContext('2d');
+    ctx.font = memeChoise.fontSize +"px " + memeChoise.fontFamily;
+    ctx.fillStyle = memeChoise.fontColor;
+    ctx.fillText(memeChoise.text,50,50);
+
+}
+/*
 
 function drawOnCanvas(memeChoise) {
-    var canvas = document.getElementById('canvas');
+    var canvas = document.querySelector('.canvasInEditor');
     var ctx = canvas.getContext('2d');
     var img = new Image();
     img.src = memeChoise.url;
@@ -105,7 +133,7 @@ function drawOnCanvas(memeChoise) {
         
         
     };
-}
+}*/
 
 
 
