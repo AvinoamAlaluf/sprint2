@@ -5,37 +5,37 @@ var gImgs = [{
     id: 1,
     url: 'img/gallery/1.jpg',
     text: "dan as worier",
-    keywords: ['strong', 'powerfull', 'sexy']
+    keywords: ['strong', 'powerfull','sexy']
 },
 {
     id: 2,
     url: 'img/gallery/danWithAHat.jpg',
     text: "dan With A Hat",
-    keywords: ['peaceful', 'sweet', 'nice']
+    keywords: ['peaceful','sweet','nice']
 },
 {
     id: 3,
     url: 'img/gallery/danWithBear.jpg',
     text: "dan With Bear",
-    keywords: ['satisfied', 'happy']
+    keywords: ['satisfied','happy']
 },
 {
     id: 4,
     url: 'img/gallery/yaronAndAsafWithSpoons.jpg',
     text: "yaron And Asaf With Spoons",
-    keywords: ['happy', 'satisfied', 'weired']
+    keywords: ['happy','satisfied','weired']
 },
 {
     id: 5,
     url: 'img/gallery/yaronSurprised.jpg',
     text: "yaron Surprised",
-    keywords: ['surprised', 'investigator']
+    keywords: ['Surprised','investigator']
 },
 {
     id: 6,
     url: 'img/gallery/yaronWithPhone.jpg',
     text: "yaron With Phone",
-    keywords: ['tech oriented', 'inspiring', 'strong']
+    keywords: ['tech oriented','inspiring','strong']
 }
 ];
 
@@ -52,9 +52,13 @@ var gMeme = {
 
 var gKeywordsMap = createKeywordsMapObj(gImgs);
 
+var memechoise = {
+    font:
+
+}
+
 buildGallery(gImgs);
 drawOnCanvas();
-makeKeywordsBigger();
 
 //put html
 function buildGallery(imgs) {
@@ -79,15 +83,16 @@ function buildGallery(imgs) {
 }
 
 
-//HAHAHAHAH :)
-function drawOnCanvas() {
+
+function drawOnCanvas(memechoise) {
     var canvas = document.getElementById('canvas');
     var ctx = canvas.getContext('2d');
     var img = new Image();
-    img.src = "img/gallery/danWithBear.jpg";
+   // img.src = "img/gallery/danWithBear.jpg";
+    img.src = memechoise.url;
 
     img.onload = function () {
-        ctx.drawImage(img, 0, 0, 568, 360);
+        ctx.drawImage(img, 0, 0,canvas.width,canvas.height);
 
         ctx.font = "50px 'Segoe UI'";
         ctx.fillStyle = 'white';
@@ -117,12 +122,12 @@ function downloadImg(elLink) {
 //filtering function for the search by keywords feild, can be modifed for the "words get big for being popular shit."
 function filterGallery(keywords) {
     var filteredGallery;
-    if (keywords.length === 0) {
+    if (keywords.length === 0 ) {
         buildGallery(gImgs);
         return;
     }
     var keywordsArr = keywords.split(" ");
-    keywordsArr = keywordsArr.map(function (keyword) {
+    keywordsArr = keywordsArr.map(function (keyword){
         return keyword.toLowerCase();
     });
     if (keywordsArr.length > 1) {
@@ -148,7 +153,6 @@ function filterGallery(keywords) {
     buildGallery(filteredGallery);
 }
 
-
 function createKeywordsMapObj(imgs) {//makes a mapObj
     var keywordsMap = {};
     imgs.forEach(function (img) {
@@ -172,4 +176,3 @@ function makeKeywordsBigger(){//only takes place in div class="keywordsPopularit
     var elKeywordsPopularity = document.querySelector('.keywordsPopularity');
     elKeywordsPopularity.innerHTML = strHtml;
 }
-
