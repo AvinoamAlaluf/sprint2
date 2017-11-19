@@ -52,21 +52,22 @@ var gMeme = {
 
 var gKeywordsMap = createKeywordsMapObj(gImgs);
 
-var memechoise = {
-    fonSize: 20,
-    fontFamily: 'Segoe UI',
-    text:'בתאכלסס',
-    positionX: 50,
-    positionY: 300,
+var memeChoise = {
+    url: "img/gallery/danWithBear.jpg",
+    fontSize: 60,
+    fontFamily: "Georgia",
+    text:"..בתאכלסס",
+    positionX: 10,
+    positionY: 50,
     fontColor: "white"
 
 
 }
-
+function init(){
 buildGallery(gImgs);
-drawOnCanvas();
+drawOnCanvas(memeChoise);
+}
 
-//put html
 function buildGallery(imgs) {
     var elGallery = document.querySelector('.gallery');
     var strHtmls = '';
@@ -90,19 +91,19 @@ function buildGallery(imgs) {
 
 
 
-function drawOnCanvas(memechoise) {
+function drawOnCanvas(memeChoise) {
     var canvas = document.getElementById('canvas');
     var ctx = canvas.getContext('2d');
     var img = new Image();
-   // img.src = "img/gallery/danWithBear.jpg";
-    img.src = memechoise.url;
+    img.src = memeChoise.url;
 
     img.onload = function () {
         ctx.drawImage(img, 0, 0,canvas.width,canvas.height);
-
-        ctx.font = `${memeChoise.fonSize} + "px" + ${memeChoise.fontFamily}`;
-        ctx.fillStyle = `${memeChoise.fontColor}`;
-        ctx.fillText = `(${memeChoise.text},${memeChoise.x} ,${memeChoise.y})`;
+        ctx.font = memeChoise.fontSize +"px " + memeChoise.fontFamily;
+        ctx.fillStyle = memeChoise.fontColor;
+        ctx.fillText(memeChoise.text,canvas.width-250,canvas.height-50);
+        
+        
     };
 }
 
