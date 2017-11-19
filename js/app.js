@@ -2,41 +2,41 @@ var canvas;
 var ctx;
 
 var gImgs = [{
-    id: 1,
-    url: 'img/gallery/1.jpg',
-    text: "dan as worier",
-    keywords: ['strong', 'powerfull','sexy']
-},
-{
-    id: 2,
-    url: 'img/gallery/danWithAHat.jpg',
-    text: "dan With A Hat",
-    keywords: ['peaceful','sweet','nice']
-},
-{
-    id: 3,
-    url: 'img/gallery/danWithBear.jpg',
-    text: "dan With Bear",
-    keywords: ['satisfied','happy']
-},
-{
-    id: 4,
-    url: 'img/gallery/yaronAndAsafWithSpoons.jpg',
-    text: "yaron And Asaf With Spoons",
-    keywords: ['happy','satisfied','weired']
-},
-{
-    id: 5,
-    url: 'img/gallery/yaronSurprised.jpg',
-    text: "yaron Surprised",
-    keywords: ['Surprised','investigator']
-},
-{
-    id: 6,
-    url: 'img/gallery/yaronWithPhone.jpg',
-    text: "yaron With Phone",
-    keywords: ['tech oriented','inspiring','strong']
-}
+        id: 1,
+        url: 'img/gallery/1.jpg',
+        text: "dan as worier",
+        keywords: ['strong', 'powerfull', 'sexy']
+    },
+    {
+        id: 2,
+        url: 'img/gallery/danWithAHat.jpg',
+        text: "dan With A Hat",
+        keywords: ['peaceful', 'sweet', 'nice']
+    },
+    {
+        id: 3,
+        url: 'img/gallery/danWithBear.jpg',
+        text: "dan With Bear",
+        keywords: ['satisfied', 'happy']
+    },
+    {
+        id: 4,
+        url: 'img/gallery/yaronAndAsafWithSpoons.jpg',
+        text: "yaron And Asaf With Spoons",
+        keywords: ['happy', 'satisfied', 'weired']
+    },
+    {
+        id: 5,
+        url: 'img/gallery/yaronSurprised.jpg',
+        text: "yaron Surprised",
+        keywords: ['Surprised', 'investigator']
+    },
+    {
+        id: 6,
+        url: 'img/gallery/yaronWithPhone.jpg',
+        text: "yaron With Phone",
+        keywords: ['tech oriented', 'inspiring', 'strong']
+    }
 ];
 
 
@@ -57,16 +57,17 @@ var memeChoise = {
     url: "img/gallery/danWithBear.jpg",
     fontSize: 60,
     fontFamily: "Georgia",
-    text:" ",
+    text: " ",
     positionX: 10,
     positionY: 50,
     fontColor: "white",
-    id:0
+    id: 0
 
 }
-function init(){
-buildGallery(gImgs);
-//drawOnCanvas(memeChoise);
+
+function init() {
+    buildGallery(gImgs);
+    //drawOnCanvas(memeChoise);
 }
 
 
@@ -91,44 +92,45 @@ function buildGallery(imgs) {
     elGallery.innerHTML = strHtmls;
 }
 
-function makeMeme(imgId){
+function makeMeme(imgId) {
     memeChoise.id = imgId;
-    memeChoise.url = gImgs[imgId-1].url; //updta the meme object wiyh the right url
+    memeChoise.url = gImgs[imgId - 1].url; //updta the meme object wiyh the right url
     drawImgOnCanvas(imgId);
 }
 //CR: instead of paramter work on the global memeChoise
-function drawImgOnCanvas(imgId){
+function drawImgOnCanvas(imgId) {
     var canvas = document.querySelector('.canvasInEditor');
     var ctx = canvas.getContext('2d');
     var img = new Image();
     img.src = memeChoise.url;
     img.onload = function () {
-        ctx.drawImage(img, 0, 0,canvas.width,canvas.height);
-        ctx.font = memeChoise.fontSize +"px " + memeChoise.fontFamily;
+        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+        ctx.font = memeChoise.fontSize + "px " + memeChoise.fontFamily;
         ctx.fillStyle = memeChoise.fontColor;
-        ctx.fillText(memeChoise.text,50,150);
-           
+        ctx.fillText(memeChoise.text, 50, 150);
+
     };
-    
+
 }
 // CR: you use the dom element and not his value.
-function inputText(){
+function inputText() {
     memeChoise.text = document.querySelector('.canvas-text').value;
     drawImgOnCanvas(memeChoise.id);
 
 }
-function changeMemeOb(x){
-    if (x.class === 'textSize'){
-    memeChoise.fontSize = x.value;
-        console.log(x, x.value);
-    if( x.class === 'textWeight'){
-    memeChoise.fontWeight = x.value;   
-    }
 
-    //memeChoise.fontFamily = "Georgia";
-   // memeChoise.fontColor = "white";
+function changeMemeOb(x) {
+    if (x.className === 'textSize') {
+        memeChoise.fontSize = x.value;
         
-
+    }
+    drawImgOnCanvas(memeChoise.id);
+      /*  if (x.class === 'textWeight') {
+            memeChoise.fontWeight = x.value;
+        }*/
+       
+        // memeChoise.fontColor = "white";
+    
 }
 
 /**
@@ -151,12 +153,12 @@ function downloadImg(elLink) {
 function filterGallery(keywords) {
     var filteredGallery;
     //CR  : if(keyWords.length === 0 ) return buildGallery(gImgs)
-    if (keywords.length === 0 ) {
+    if (keywords.length === 0) {
         buildGallery(gImgs);
         return;
     }
     var keywordsArr = keywords.split(" ");
-    keywordsArr = keywordsArr.map(function (keyword){
+    keywordsArr = keywordsArr.map(function (keyword) {
         return keyword.toLowerCase();
     });
     if (keywordsArr.length > 1) {
@@ -164,10 +166,9 @@ function filterGallery(keywords) {
             var containsAllWords = false;
             for (var i = 0; i < keywordsArr.length; i++) {
                 var word = keywordsArr[i];
-                if (img.keywords.includes(word)) {//can make search better by searching for a words within an item inside img.keywords
+                if (img.keywords.includes(word)) { //can make search better by searching for a words within an item inside img.keywords
                     containsAllWords = true;
-                }
-                else {
+                } else {
                     containsAllWords = false;
                     break;
                 }
@@ -183,14 +184,14 @@ function filterGallery(keywords) {
     buildGallery(filteredGallery);
 }
 
-function createKeywordsMapObj(imgs) {//makes a mapObj
+function createKeywordsMapObj(imgs) { //makes a mapObj
     var keywordsMap = {};
     imgs.forEach(function (img) {
         for (var i = 0; i < img.keywords.length; i++) {
             var currKeyword = img.keywords[i];
             if (keywordsMap[currKeyword]) {
                 keywordsMap[currKeyword]++;
-            }else{
+            } else {
                 keywordsMap[currKeyword] = 1;
             }
         }
@@ -198,10 +199,10 @@ function createKeywordsMapObj(imgs) {//makes a mapObj
     return keywordsMap;
 }
 
-function makeKeywordsBigger(){//only takes place in div class="keywordsPopularity"
+function makeKeywordsBigger() { //only takes place in div class="keywordsPopularity"
     var strHtml = '';
     for (var word in gKeywordsMap) {
-        strHtml+= `<span style="font-size:${gKeywordsMap[word] * 0.5}em; margin:5px;">${word}</span>`;
+        strHtml += `<span style="font-size:${gKeywordsMap[word] * 0.5}em; margin:5px;">${word}</span>`;
     }
     var elKeywordsPopularity = document.querySelector('.keywordsPopularity');
     elKeywordsPopularity.innerHTML = strHtml;
