@@ -53,7 +53,7 @@
         <div class="memeEditor">
             <h2>Meme It</h2>
             <div class="toolBar">
-                <i class="fa fa-font fa-1x textEditor" aria-hidden="true"></i>
+                <i class="fa fa-font fa-1x textEditor" aria-hidden="true" onclick="toggleMemeEditorPopup()"></i>
                 <i class="fa fa-paint-brush colorEditor" aria-hidden="true"></i>
 
             </div>
@@ -64,16 +64,51 @@
 
 
     <div class="container">
-        <div class="memeEditorPopup">
-                Text-Size: 
-                <input type="radio" name="textSize" class="textSize" value="0.5em" checked> Small 
-                <input type="radio" name="textSize" class="textSize" value="1em">  Standart
+        <div class="hidden memeEditorPopup">
+            <div class="textSizeEditor">
+                Text-Size:
+                <input type="radio" name="textSize" class="textSize" value="0.5em" checked> Small
+                <input type="radio" name="textSize" class="textSize" value="1em"> Standart
                 <input type="radio" name="textSize" class="textSize" value="1.5em"> Big
                 <input type="radio" name="textSize" class="textSize" value="2em"> Huge
+            </div>
+            <div class="textWidthEditor">
+                Text-Width:
+                <input type="radio" name="textWeight" class="textWeight" value="0.2em" checked> Small
+                <input type="radio" name="textWeight" class="textWeight" value="0.3em"> Standart
+                <input type="radio" name="textWeight" class="textWeight" value="0.5em"> Big
+                <input type="radio" name="textWeight" class="textWeight" value="0.8em"> Huge
+            </div>
+            <div class="textAlignEditor">
+                Text-Align:
+                <input type="radio" name="textAlign" class="textAlign" value="left"> Left
+                <input type="radio" name="textAlign" class="textAlign" value="center" checked> Center
+                <input type="radio" name="textAlign" class="textAlign" value="right"> Right
+            </div>
+            <div class="textUppercaseEditor">
+                Upper-Case:
+                <input type="checkbox" class="textUppercase">
+            </div>
+            <!-- SHOULD CHECK CONNECTION IN DDMENU AND REST OF INPUT -->
+            <div class="dropdown textFontFamilyEditor">
+                <button class="dropbtn">Font Family</button>
+                <div class="dropdown-content">
+                    <a href="#">Eurof55</a>
+                    <a href="#">Lato-Bold</a>
+                    <a href="#">Lato-Regular</a>
+                    <a href="#">Maven-Pro-Regular</a>
+                </div>
+            </div>
+            <div class="textEditorButtons">
+                <!-- BtnOK SHOULD CAHNGE THE CANVAS BY THE ".memeEditorPopup" SETTINGS -->
+                <span class="btnOk"onclick="toggleMemeEditorPopup() ">Ok</span>
+                <span class="btnCancle"onclick="toggleMemeEditorPopup()">Cancle</span>
+            </div>
+
         </div>
     </div>
 
-    
+
     <div class="about">
         <div class="inner-about">
             <div class="card-person">
@@ -107,7 +142,7 @@
 
 
 
-
+    <script src="js/htmlChanges.js"></script>
     <script src="js/app.js"></script>
 </body>
 
