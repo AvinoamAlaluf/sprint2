@@ -5,37 +5,37 @@ var gImgs = [{
     id: 1,
     url: 'img/gallery/1.jpg',
     text: "dan as worier",
-    keywords: ['strong', 'powerfull','sexy']
+    keywords: ['strong', 'powerfull', 'sexy']
 },
 {
     id: 2,
     url: 'img/gallery/danWithAHat.jpg',
     text: "dan With A Hat",
-    keywords: ['peaceful','sweet','nice']
+    keywords: ['peaceful', 'sweet', 'nice']
 },
 {
     id: 3,
     url: 'img/gallery/danWithBear.jpg',
     text: "dan With Bear",
-    keywords: ['satisfied','happy']
+    keywords: ['satisfied', 'happy']
 },
 {
     id: 4,
     url: 'img/gallery/yaronAndAsafWithSpoons.jpg',
     text: "yaron And Asaf With Spoons",
-    keywords: ['happy','satisfied','weired']
+    keywords: ['happy', 'satisfied', 'weired']
 },
 {
     id: 5,
     url: 'img/gallery/yaronSurprised.jpg',
     text: "yaron Surprised",
-    keywords: ['Surprised','investigator']
+    keywords: ['surprised', 'investigator']
 },
 {
     id: 6,
     url: 'img/gallery/yaronWithPhone.jpg',
     text: "yaron With Phone",
-    keywords: ['tech oriented','inspiring','strong']
+    keywords: ['tech oriented', 'inspiring', 'strong']
 }
 ];
 
@@ -50,8 +50,11 @@ var gMeme = {
     }]
 }
 
+var gKeywordsMap = createKeywordsMapObj(gImgs);
+
 buildGallery(gImgs);
 drawOnCanvas();
+makeKeywordsBigger();
 
 //put html
 function buildGallery(imgs) {
@@ -114,12 +117,12 @@ function downloadImg(elLink) {
 //filtering function for the search by keywords feild, can be modifed for the "words get big for being popular shit."
 function filterGallery(keywords) {
     var filteredGallery;
-    if (keywords.length === 0 ) {
+    if (keywords.length === 0) {
         buildGallery(gImgs);
         return;
     }
     var keywordsArr = keywords.split(" ");
-    keywordsArr = keywordsArr.map(function (keyword){
+    keywordsArr = keywordsArr.map(function (keyword) {
         return keyword.toLowerCase();
     });
     if (keywordsArr.length > 1) {
@@ -127,7 +130,7 @@ function filterGallery(keywords) {
             var containsAllWords = false;
             for (var i = 0; i < keywordsArr.length; i++) {
                 var word = keywordsArr[i];
-                if (img.keywords.includes(word)) {
+                if (img.keywords.includes(word)) {//can make search better by searching for a words within an item inside img.keywords
                     containsAllWords = true;
                 }
                 else {
@@ -143,5 +146,30 @@ function filterGallery(keywords) {
         });
     }
     buildGallery(filteredGallery);
+}
+
+
+function createKeywordsMapObj(imgs) {//makes a mapObj
+    var keywordsMap = {};
+    imgs.forEach(function (img) {
+        for (var i = 0; i < img.keywords.length; i++) {
+            var currKeyword = img.keywords[i];
+            if (keywordsMap[currKeyword]) {
+                keywordsMap[currKeyword]++;
+            }else{
+                keywordsMap[currKeyword] = 1;
+            }
+        }
+    });
+    return keywordsMap;
+}
+
+function makeKeywordsBigger(){//only takes place in div class="keywordsPopularity"
+    var strHtml = '';
+    for (var word in gKeywordsMap) {
+        strHtml+= `<span style="font-size:${gKeywordsMap[word] * 0.5}em; margin:5px;">${word}</span>`;
+    }
+    var elKeywordsPopularity = document.querySelector('.keywordsPopularity');
+    elKeywordsPopularity.innerHTML = strHtml;
 }
 

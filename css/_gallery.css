@@ -3,7 +3,7 @@
 }
 
 .gallery{
-    width: 99%;
+    width: 100%;
 }
 
 .galleryList{
@@ -29,8 +29,10 @@
 /* IF LEAVING ONLY "imageItem" WIDTH:33.3333% IT STAYS GOOD TILL STRECH OF 650px WIDTH(PICTURE DOESN'T STAY SQUARE) */
 .imageItem{
     width: 33.3333%;
-    /* height: 60px;
-    min-height: 60px;
+    /* min-width: 33.3333%; */
+    /* max-width: 33.3333%; */
+    /* height: auto; */
+    /* min-height: 60px;
     max-height: auto; */
 }
 
