@@ -17,12 +17,7 @@
     flex-direction: row;
     border: 3px solid  lightgray;
     border-bottom: 0px;
-}
-
-.itemFather{
-    display: flex;
-    flex-direction: row;
-    align-items: stretch;
+    width: 100%;
 }
 
 /* SIZES MATCH FOR MOBILE FIRST SMALLEST PHONE (340PX), SHOULD BE CHANGED IN MEDIA QUERIES */
@@ -40,6 +35,7 @@
 .imageItem img{
     width: 100%;
     height: 100%;
+    object-fit: contain;
     /* max-height: 168px; */
     /* max-width: 162px; */
     border-right: 3px solid  lightgray;
