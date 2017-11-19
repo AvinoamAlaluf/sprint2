@@ -99,6 +99,7 @@ function drawImgOnCanvas(imgId) {
     var ctx = canvas.getContext('2d');
     var img = new Image();
     img.src = memeChoise.url;
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
     img.onload = function () {
         ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
         ctx.font = memeChoise.fontSize + "px " + memeChoise.fontFamily;
