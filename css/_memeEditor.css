@@ -7,6 +7,7 @@
     align-items: center;
     font-family: Lato-Bold;
     color: white;
+    padding-bottom: 10px;
 }
 
 .memeEditor h2{
@@ -61,6 +62,7 @@
     justify-content: space-around;
     align-items: center;
     color: white;
+    padding: 10px 0;
     /* position: fixed;
     top :0;
     bottom:0;
@@ -127,6 +129,8 @@
     justify-content: space-around;
     color: white;
     font-family: Lato-Bold;
+    /* margin: 10px 0; */
+    padding: 10px 0;
     /* position: fixed; */
     /* top :0; */
     /* bottom:0; */
