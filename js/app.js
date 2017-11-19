@@ -76,17 +76,14 @@ function buildGallery(imgs) {
     var strHtmls = '';
     imgs.forEach(function (img) {
         console.log(img.url);
-        var strHtml = `<ul class="galleryList">
-            <li class="galleryItem" onclick= makeMeme(${img.id})>
-                <ul class="itemFather">
-                    <li class="imageItem">
-                        <img src= "${img.url}"/> </li>
-                    <li class="textItem">${img.text}</li>
-                </ul>
-            </li>
-        </ul> `
-
-
+        var strHtml = `<div class="galleryList">
+            <div class="galleryItem" onclick= makeMeme(${img.id})>                
+                <div class="imageItem">
+                    <img src= "${img.url}"/> 
+                </div>
+                <div class="textItem">${img.text}</div>
+            </div>
+        </div> `;
         strHtmls += strHtml
     });
     elGallery.innerHTML = strHtmls;
@@ -112,11 +109,6 @@ function drawImgOnCanvas(imgId) {
 
     };
 
-    ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-    ctx.font = memeChoise.fontSize + " " + memeChoise.fontFamily;
-    ctx.fillStyle = memeChoise.fontColor;
-    ctx.fillText(memeChoise.text, 50, 150);
-
 }
 // CR: you use the dom element and not his value.
 function inputText() {
@@ -126,7 +118,7 @@ function inputText() {
 }
 
 function changeMemeOb(x) {
-    if (x.className === 'textSize') {
+    if (x.class === 'textSize') {
         memeChoise.fontSize = x.value;
 
     }
@@ -138,6 +130,9 @@ function changeMemeOb(x) {
     // memeChoise.fontColor = "white";
 
 }
+
+
+
 
 /**
  * This is the function that will take care of image extracting and
@@ -212,4 +207,5 @@ function makeKeywordsBigger() { //only takes place in div class="keywordsPopular
     }
     var elKeywordsPopularity = document.querySelector('.keywordsPopularity');
     elKeywordsPopularity.innerHTML = strHtml;
+}
 }
