@@ -51,22 +51,24 @@ var gMeme = {
 }
 
 var gKeywordsMap = createKeywordsMapObj(gImgs);
-
+//CR: right now, this is not support more than one text.
+// look at the pdf for good example.
 var memeChoise = {
     url: "img/gallery/danWithBear.jpg",
     fontSize: 60,
     fontFamily: "Georgia",
-    text:"..בתאכלסס",
+    text:" ",
     positionX: 10,
     positionY: 50,
-    fontColor: "white"
-
+    fontColor: "white",
+    id:0
 
 }
 function init(){
 buildGallery(gImgs);
-drawOnCanvas(memeChoise);
+//drawOnCanvas(memeChoise);
 }
+
 
 function buildGallery(imgs) {
     var elGallery = document.querySelector('.gallery');
@@ -74,7 +76,7 @@ function buildGallery(imgs) {
     imgs.forEach(function (img) {
         console.log(img.url);
         var strHtml = `<ul class="galleryList">
-            <li class="galleryItem">
+            <li class="galleryItem" onclick= makeMeme(${img.id})>
                 <ul class="itemFather">
                     <li class="imageItem">
                         <img src= "${img.url}"/> </li>
@@ -89,26 +91,45 @@ function buildGallery(imgs) {
     elGallery.innerHTML = strHtmls;
 }
 
-
-
-function drawOnCanvas(memeChoise) {
-    var canvas = document.getElementById('canvas');
+function makeMeme(imgId){
+    memeChoise.id = imgId;
+    memeChoise.url = gImgs[imgId-1].url; //updta the meme object wiyh the right url
+    drawImgOnCanvas(imgId);
+}
+//CR: instead of paramter work on the global memeChoise
+function drawImgOnCanvas(imgId){
+    var canvas = document.querySelector('.canvasInEditor');
     var ctx = canvas.getContext('2d');
     var img = new Image();
     img.src = memeChoise.url;
-
     img.onload = function () {
         ctx.drawImage(img, 0, 0,canvas.width,canvas.height);
         ctx.font = memeChoise.fontSize +"px " + memeChoise.fontFamily;
         ctx.fillStyle = memeChoise.fontColor;
-        ctx.fillText(memeChoise.text,canvas.width-250,canvas.height-50);
-        
-        
+        ctx.fillText(memeChoise.text,50,150);
+           
     };
+    
 }
+// CR: you use the dom element and not his value.
+function inputText(){
+    memeChoise.text = document.querySelector('.canvas-text').value;
+    drawImgOnCanvas(memeChoise.id);
 
+}
+function changeMemeOb(x){
+    if (x.class === 'textSize'){
+    memeChoise.fontSize = x.value;
+        console.log(x, x.value);
+    if( x.class === 'textWeight'){
+    memeChoise.fontWeight = x.value;   
+    }
 
+    //memeChoise.fontFamily = "Georgia";
+   // memeChoise.fontColor = "white";
+        
 
+}
 
 /**
  * This is the function that will take care of image extracting and
@@ -129,6 +150,7 @@ function downloadImg(elLink) {
 //filtering function for the search by keywords feild, can be modifed for the "words get big for being popular shit."
 function filterGallery(keywords) {
     var filteredGallery;
+    //CR  : if(keyWords.length === 0 ) return buildGallery(gImgs)
     if (keywords.length === 0 ) {
         buildGallery(gImgs);
         return;
@@ -154,6 +176,7 @@ function filterGallery(keywords) {
         });
     } else {
         filteredGallery = gImgs.filter(function (img) {
+            // return (img.keywords.includes(keywordsArr[0]))
             if (img.keywords.includes(keywordsArr[0])) return img;
         });
     }

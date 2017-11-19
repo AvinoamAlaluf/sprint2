@@ -57,7 +57,10 @@
                 <i class="fa fa-paint-brush colorEditor" aria-hidden="true" onclick="toggleColorEditorPopup()"></i>
 
             </div>
-            <canvas class="canvasInEditor"></canvas>
+            <div class="canvas-continer">
+                <canvas class="canvasInEditor"></canvas>
+                <input  class ="canvas-text" oninput="inputText()" type="text" />
+            </div>
             <i class="fa fa-floppy-o fa-2x saveButton" aria-hidden="true"></i>
         </div>
     </div>
@@ -67,23 +70,23 @@
         <div class="hidden memeEditorPopup">
             <div class="textSizeEditor">
                 Text-Size:
-                <input type="radio" name="textSize" class="textSize" value="0.5em" checked> Small
-                <input type="radio" name="textSize" class="textSize" value="1em"> Standart
-                <input type="radio" name="textSize" class="textSize" value="1.5em"> Big
-                <input type="radio" name="textSize" class="textSize" value="2em"> Huge
+                <input type="radio" name="textSize" class="textSize" value="0.5em" onclick=changeMemeOb(this) checked> Small
+                <input type="radio" name="textSize" class="textSize" value="1em" onclick=changeMemeOb(this)> Standart
+                <input type="radio" name="textSize" class="textSize" value="1.5em" onclick=changeMemeOb(this)> Big
+                <input type="radio" name="textSize" class="textSize" value="2em" onclick=changeMemeOb(this)> Huge
             </div>
             <div class="textWidthEditor">
                 Text-Width:
-                <input type="radio" name="textWeight" class="textWeight" value="0.2em" checked> Small
-                <input type="radio" name="textWeight" class="textWeight" value="0.3em"> Standart
-                <input type="radio" name="textWeight" class="textWeight" value="0.5em"> Big
-                <input type="radio" name="textWeight" class="textWeight" value="0.8em"> Huge
+                <input type="radio" name="textWeight" class="textWeight" value="0.2em" onclick=changeMemeOb(this) checked> Small
+                <input type="radio" name="textWeight" class="textWeight" value="0.3em" onclick=changeMemeOb(this)> Standart
+                <input type="radio" name="textWeight" class="textWeight" value="0.5em" onclick=changeMemeOb(this)> Big
+                <input type="radio" name="textWeight" class="textWeight" value="0.8em" onclick=changeMemeOb(this)> Huge
             </div>
             <div class="textAlignEditor">
                 Text-Align:
-                <input type="radio" name="textAlign" class="textAlign" value="left"> Left
-                <input type="radio" name="textAlign" class="textAlign" value="center" checked> Center
-                <input type="radio" name="textAlign" class="textAlign" value="right"> Right
+                <input type="radio" name="textAlign" class="textAlign" value="left" onclick=changeMemeOb(this)> Left
+                <input type="radio" name="textAlign" class="textAlign" value="center" onclick=changeMemeOb(this) checked> Center
+                <input type="radio" name="textAlign" class="textAlign" value="right" onclick=changeMemeOb(this) > Right
             </div>
             <div class="textUppercaseEditor">
                 Upper-Case:

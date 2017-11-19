@@ -33,11 +33,23 @@
 
 .canvasInEditor{
     width: 100%;
+  
+}
+
+.canvas-continer{
+    width: 100%;
     margin: 0 auto;    
     border: 1px solid white;
     margin: 5px 0px;
+    position: relative;
+
+
 }
 
+.canvas-text{
+    position: absolute;
+    background-color: transparent;
+}
 
 /* ////////CANVAS EDITOR POPUPS /////////// */
 
