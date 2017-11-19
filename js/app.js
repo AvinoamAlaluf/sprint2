@@ -2,41 +2,41 @@ var canvas;
 var ctx;
 
 var gImgs = [{
-        id: 1,
-        url: 'img/gallery/1.jpg',
-        text: "dan as worier",
-        keywords: ['strong', 'powerfull', 'sexy']
-    },
-    {
-        id: 2,
-        url: 'img/gallery/danWithAHat.jpg',
-        text: "dan With A Hat",
-        keywords: ['peaceful', 'sweet', 'nice']
-    },
-    {
-        id: 3,
-        url: 'img/gallery/danWithBear.jpg',
-        text: "dan With Bear",
-        keywords: ['satisfied', 'happy']
-    },
-    {
-        id: 4,
-        url: 'img/gallery/yaronAndAsafWithSpoons.jpg',
-        text: "yaron And Asaf With Spoons",
-        keywords: ['happy', 'satisfied', 'weired']
-    },
-    {
-        id: 5,
-        url: 'img/gallery/yaronSurprised.jpg',
-        text: "yaron Surprised",
-        keywords: ['Surprised', 'investigator']
-    },
-    {
-        id: 6,
-        url: 'img/gallery/yaronWithPhone.jpg',
-        text: "yaron With Phone",
-        keywords: ['tech oriented', 'inspiring', 'strong']
-    }
+    id: 1,
+    url: 'img/gallery/1.jpg',
+    text: "dan as worier",
+    keywords: ['strong', 'powerfull', 'sexy']
+},
+{
+    id: 2,
+    url: 'img/gallery/danWithAHat.jpg',
+    text: "dan With A Hat",
+    keywords: ['peaceful', 'sweet', 'nice']
+},
+{
+    id: 3,
+    url: 'img/gallery/danWithBear.jpg',
+    text: "dan With Bear",
+    keywords: ['satisfied', 'happy']
+},
+{
+    id: 4,
+    url: 'img/gallery/yaronAndAsafWithSpoons.jpg',
+    text: "yaron And Asaf With Spoons",
+    keywords: ['happy', 'satisfied', 'weired']
+},
+{
+    id: 5,
+    url: 'img/gallery/yaronSurprised.jpg',
+    text: "yaron Surprised",
+    keywords: ['Surprised', 'investigator']
+},
+{
+    id: 6,
+    url: 'img/gallery/yaronWithPhone.jpg',
+    text: "yaron With Phone",
+    keywords: ['tech oriented', 'inspiring', 'strong']
+}
 ];
 
 
@@ -207,5 +207,4 @@ function makeKeywordsBigger() { //only takes place in div class="keywordsPopular
     }
     var elKeywordsPopularity = document.querySelector('.keywordsPopularity');
     elKeywordsPopularity.innerHTML = strHtml;
-}
 }
