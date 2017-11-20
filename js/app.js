@@ -102,11 +102,11 @@ gCanvas.height = 300;
 
 var memeChoise = {
     url: "img/gallery/danWithBear.jpg",
-    fontSize: "25px",
-    fontFamily: "Georgia",
+    fontSize: "30px",
+    fontFamily: "Impact",
     text: "",
     upperCase: false,
-    positionX: gCanvas.width/2,
+    positionX: gCanvas.width/2 -50,
     positionY: gCanvas.height/2,
     fontColor: "white",
     textAlign: "",
