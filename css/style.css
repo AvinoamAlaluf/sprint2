@@ -6,10 +6,14 @@
 @import '_gallery.css';
 @import '_memeEditor.css';
 
+body{
+    /* background: #2fb299; */
+}
+
 .container{
     width: 100vw;
     height: 100%;
-    background: #2fb299;;
+    background: #2fb299;
 }
 
 
@@ -52,13 +56,14 @@
 
     .galleryList{
         align-self: center;
-        width: 33.3333%;
+        /* width: 33.3333%; */
         padding-bottom: 15px;
+        max-width:216px;
     }
     
     .galleryItem{
         display: flex;
-        max-width:200px;
+        max-width:216px;
         height: 220px;
         flex-direction: row;
         border-color: transparent;
@@ -120,5 +125,8 @@
     }
     .colorEditor{
         font-size: 1.05em;
+    }
+    .about{
+        padding: 100px 0;
     }
 }

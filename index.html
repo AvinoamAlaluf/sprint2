@@ -73,9 +73,8 @@
     <div class="container">
         <div class="memeEditorPopup">
             <div class="textSizeEditor">
-                
-                <br>
-                Text-Size:
+
+                <br> Text-Size:
                 <input type="radio" name="textSize" class="textSize" value="15px" onclick=changeMemeOb(this) checked> Small
                 <input type="radio" name="textSize" class="textSize" value="25px" onclick=changeMemeOb(this)> Standart
                 <input type="radio" name="textSize" class="textSize" value="35px" onclick=changeMemeOb(this)> Big
@@ -86,15 +85,22 @@
                 <input type="radio" name="textWeight" class="textWeight" value="" onclick=changeMemeOb(this) checked> reguler
                 <input type="radio" name="textWeight" class="textWeight" value="bold" onclick=changeMemeOb(this)> bold
                 <input type="radio" name="textWeight" class="textWeight" value="italic" onclick=changeMemeOb(this)> italiq
+                <input type="radio" class="textWeightFinal">
+                <input type="radio" class="textWeightFinal">
             </div>
             <div class="textUppercaseEditor">
                 Upper-Case:
-                <input type="checkbox" class="textUppercase" onclick=changeMemeOb(this)>
-                Text-Shadow:
+                <input type="checkbox" class="textUppercase" onclick=changeMemeOb(this)> Text-Shadow:
                 <input type="checkbox" class="textShadow" onclick=changeMemeOb(this)>
-            </div>
-            <div class="textUppercaseEditor">
-                
+                <div class="dropdown textFontFamilyEditor">
+                    <button class="dropbtn">Font Family</button>
+                    <div class="dropdown-content">
+                        <a href="#" class="font" onclick=changeMemeOb(this)>Eurof55</a>
+                        <a href="#" class="font" onclick=changeMemeOb(this)>Lato-Bold</a>
+                        <a href="#" class="font" onclick=changeMemeOb(this)>Lato-Regular</a>
+                        <a href="#" class="font" onclick=changeMemeOb(this)>Maven-Pro-Regular</a>
+                    </div>
+                </div>
             </div>
             <div class="textMoveLines">
                 Move The Text Box:
@@ -109,15 +115,7 @@
                 <i class="fa fa-plus fa-2x iconSpace" aria-hidden="true"></i>-->
             </div>
             <!-- SHOULD CHECK CONNECTION IN DDMENU AND REST OF INPUT -->
-            <div class="dropdown textFontFamilyEditor">
-                <button class="dropbtn">Font Family</button>
-                <div class="dropdown-content">
-                    <a href="#" class="font" onclick=changeMemeOb(this)>Eurof55</a>
-                    <a href="#" class="font" onclick=changeMemeOb(this)>Lato-Bold</a>
-                    <a href="#" class="font" onclick=changeMemeOb(this)>Lato-Regular</a>
-                    <a href="#" class="font" onclick=changeMemeOb(this)>Maven-Pro-Regular</a>
-                </div>
-            </div>
+
             <div class="textEditorButtons">
                 <!-- BtnOK SHOULD CAHNGE THE CANVAS BY THE ".memeEditorPopup" SETTINGS -->
                 <!--  <span class="btnOk" onclick="toggleMemeEditorPopup()">Ok</span>
@@ -125,21 +123,21 @@
             </div>
         </div>
     </div>
-    <div class="container">
+    <div class="container ">
         <div class="colorEditorPopup">
-            <span>Pick A Color For The Text</span>
-            <input type="color" class="colorPicker" onchange="changeMemeOb(this)">
+            <span>Pick A Color For The Text </span>
+            <input type="color" class="colorPicker" onchange="changeMemeOb(this)" value="#ffffff">
             <div class="colorEditorButtons ">
-                <!-- BtnOK SHOULD CAHNGE THE CANVAS BY THE ".memeEditorPopup" SETTINGS -->
-                <!-- <span class="btnOk" onclick="toggleColorEditorPopup() ">Ok</span>
-                <span class="btnCancle" onclick="toggleColorEditorPopup()">Cancle</span>-->
-                <a href="#" id="download" class="saveButton" onclick="downloadImg(this)">
-                        <i class="fa fa-floppy-o fa-2x saveButton" aria-hidden="true"></i>
-                    </a>
+
             </div>
+            <br>
         </div>
     </div>
-
+    <div class="colorEditorPopupContainer">
+        <a href="#" id="download" class="saveButton" onclick="downloadImg(this)">
+            <i class="fa fa-floppy-o fa-2x saveButton" aria-hidden="true"></i>
+        </a>
+    </div>
     <div class="container">
         <div class="about" id="about">
             <div class="card-person">

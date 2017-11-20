@@ -74,12 +74,8 @@
     align-items: center;
     color: white;
     padding: 10px 0;
-    /* position: fixed;
-    top :0;
-    bottom:0;
-    left:0;
-    right:0; */
     background-color: #1e6151;
+    padding-bottom: 0px;
 }
 
 .dropbtn {
@@ -138,23 +134,23 @@
 
 .colorEditorPopup{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
     color: white;
     font-family: Lato-Bold;
-    /* margin: 10px 0; */
     padding: 10px 0;
-    /* position: fixed; */
-    /* top :0; */
-    /* bottom:0; */
-    /* left:0; */
-    /* right:0; */
     background-color: #1e6151;
     outline: none;
 }
 .colorEditorPopup span{
     padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 5px;
+}
+.colorEditorPopup{
+    padding-left: 5px;
+    padding-right: 10px;
 }
 
 .textUppercaseEditor input{
@@ -195,6 +191,19 @@
 
 .saveButton{
     text-decoration: none;
-    color: inherit;
+    color: white;
     margin: 0 auto;
+}
+.saveButton:hover{
+    text-decoration: none;
+    color: #279b80;
+}
+
+.textWeightFinal{
+    visibility: collapse;
+}
+
+.colorEditorPopupContainer{
+    background: #1e6151;
+    display: flex;
 }

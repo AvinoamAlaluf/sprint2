@@ -6,37 +6,37 @@ var gImgs = [{
         id: 1,
         url: 'img/gallery/1.jpg',
         text: "dan as worier",
-        keywords: ['strong', 'powerfull', 'sexy']
+        keywords: ['strong', 'powerfull', 'sexy','dan' ,'worier']
     },
     {
         id: 2,
         url: 'img/gallery/danWithAHat.jpg',
         text: "dan With A Hat",
-        keywords: ['peaceful', 'sweet', 'nice']
+        keywords: ['peaceful', 'sweet', 'nice','dan', 'hat']
     },
     {
         id: 3,
         url: 'img/gallery/danWithBear.jpg',
         text: "dan With Bear",
-        keywords: ['satisfied', 'happy']
+        keywords: ['satisfied', 'happy','dan','bear']
     },
     {
         id: 4,
         url: 'img/gallery/yaronAndAsafWithSpoons.jpg',
         text: "yaron And Asaf With Spoons",
-        keywords: ['happy', 'satisfied', 'weired']
+        keywords: ['happy', 'satisfied', 'weired','yaron','asaf', 'spoons']
     },
     {
         id: 5,
         url: 'img/gallery/yaronSurprised.jpg',
         text: "yaron Surprised",
-        keywords: ['Surprised', 'investigator']
+        keywords: ['surprised', 'investigator','yaron']
     },
     {
         id: 6,
         url: 'img/gallery/yaronWithPhone.jpg',
         text: "yaron With Phone",
-        keywords: ['tech oriented', 'inspiring', 'strong']
+        keywords: ['tech','oriented', 'inspiring', 'strong','yaron', 'phone']
     }
 ];
 
@@ -77,6 +77,8 @@ var elMemePopUp = document.querySelector('.memeEditorPopup');
 var elColorPopUp = document.querySelector('.colorEditorPopup');
 var elInput = document.querySelector('.canvas-text');
 var elSearchSector = document.querySelector('.searchSector');
+var elColorEditorPopupContainer = document.querySelector('.colorEditorPopupContainer');
+
 gCanvas.width = 300;
 gCanvas.height = 300;
 function init() {
@@ -135,6 +137,7 @@ function drawImgOnCanvas(imgId) {
 
 function showGallery(){//should change into a global function for everything
     hideAbout()
+    elColorEditorPopupContainer.style.display = "none";
     elSearchSector.style.display = "block";
     elSearchSector.style.margin = "0 auto";
     elGallery.style.display = "inherit";
@@ -146,6 +149,7 @@ function showGallery(){//should change into a global function for everything
 }
 
 function showMeme() {
+    elColorEditorPopupContainer.style.display = "flex";
     elSearchSector.style.display = "none";
     elGallery.style.display = "none"; //the cointener needis to be none as well?????
     elMeme.style.display = "flex"; //show meme element
@@ -291,6 +295,7 @@ function hideAbout(){
 }
 
 function showAbout(){
+    elColorEditorPopupContainer.style.display = "none";
     elSearchSector.style.display = "none";
     elMeme.style.display = "none";
     elMemePopUp.style.display = "none";

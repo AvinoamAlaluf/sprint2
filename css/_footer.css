@@ -25,7 +25,8 @@
 }
 
  .card-person  img { 
-    background-color: #2fb299;
+    /* background-color: #2fb299; */
+    background-color: #2fb299bd;
     align-self: center;
     height: 100%;
     width: 100%;
