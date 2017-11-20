@@ -1,6 +1,6 @@
 "use strict";
-var canvas;
-var ctx;
+// var canvas;
+// var ctx;
 
 var gImgs = [{
         id: 1,
@@ -36,12 +36,30 @@ var gImgs = [{
         id: 6,
         url: 'img/gallery/yaronWithPhone.jpg',
         text: "Yaron With Phone",
-        keywords: ['tech','oriented', 'inspiring', 'strong','yaron', 'phone']
-    }
+        keywords: ['tech','oriented', 'inspiring', 'strong','yaron','asaf', 'phone']
+    },
+    {
+        id: 7,
+        url: 'img/gallery/elad.jpg',
+        text: "elad",
+        keywords: ['oriented', 'strong','elad']
+    },
+    {
+        id: 8,
+        url: 'img/gallery/yaronAcrobat.jpg',
+        text: "Yaron acrobat",
+        keywords: ['inspiring', 'strong','yaron']
+    },
+    {
+        id: 9,
+        url: 'img/gallery/yaronThinking.jpg',
+        text: "yaron Thinking",
+        keywords: ['inspiring', 'thinking','yaron']
+    },
 ];
 
 
-var gMeme = {
+/*var gMeme = {
     selectedImgId: 5,
     txts: [{
         line: 'I never eat Falafel',
@@ -49,14 +67,14 @@ var gMeme = {
         align: 'left',
         color: 'red'
     }]
-}
+}*/
 
 var gKeywordsMap = createKeywordsMapObj(gImgs);
 //CR: right now, this is not support more than one text.
 // look at the pdf for good example.
-var memeChoise = {
+/*var memeChoise = {
     url: "img/gallery/danWithBear.jpg",
-    fontSize: "16px",
+    fontSize: "20px",
     fontFamily: "Georgia",
     text: "",
     upperCase: false,
@@ -68,7 +86,7 @@ var memeChoise = {
     fontwight: "",
     textShadow: false,
 
-}
+}*/
 
 var gCanvas = document.querySelector('.canvasInEditor');
 var elGallery = document.querySelector('.gallery');
@@ -81,6 +99,23 @@ var elColorEditorPopupContainer = document.querySelector('.colorEditorPopupConta
 
 gCanvas.width = 300;
 gCanvas.height = 300;
+
+var memeChoise = {
+    url: "img/gallery/danWithBear.jpg",
+    fontSize: "25px",
+    fontFamily: "Georgia",
+    text: "",
+    upperCase: false,
+    positionX: gCanvas.width/2,
+    positionY: gCanvas.height/2,
+    fontColor: "white",
+    textAlign: "",
+    id: 0,
+    fontwight: "",
+    textShadow: false,
+
+}
+
 function init() {
     buildGallery(gImgs);
 
@@ -135,7 +170,7 @@ function drawImgOnCanvas(imgId) {
     };
 }
 
-function showGallery(){//should change into a global function for everything
+function showGallery(){
     hideAbout()
     elColorEditorPopupContainer.style.display = "none";
     elSearchSector.style.display = "block";
@@ -213,17 +248,12 @@ function changeMemeOb(x) {
 /**
  * This is the function that will take care of image extracting and
  * setting proper filename for the download.
- * IMPORTANT: Call it from within a onclick event.
  */
 function downloadImg(elLink) {
     elLink.href = canvas.toDataURL();
     elLink.download = 'perfectMeme.jpg';
 }
 
-
-//AVINOAM MADE CHANGES FROM HERE ON: 
-//(besides for laughter at line 81 ;))
-//also made a change in build gallery - to show the img obj name
 
 
 //filtering function for the search by keywords feild, can be modifed for the "words get big for being popular shit."
