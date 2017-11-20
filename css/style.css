@@ -100,10 +100,9 @@
 
     /* MEME EDITOR */
     .canvas-continer{
-        max-width: 70%;
+        max-width: 40%;
         align-self: center;
     }
-
 
     .memeEditorPopup{
         font-size: 1.05em;
