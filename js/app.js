@@ -273,7 +273,6 @@ function makeKeywordsBigger() { //only takes place in div class="keywordsPopular
     elKeywordsPopularity.innerHTML = strHtml;
 }
 
-
 function downloadImg(link) {
     link.href = gCanvas.toDataURL();
     link.download = 'myMeme.jpg';
@@ -287,4 +286,3 @@ function showAbout(){
     elAbout.style.display = 'flex';
     elAbout.style.flexDirection =  'column';
 }
-
