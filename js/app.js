@@ -128,10 +128,8 @@ function drawImgOnCanvas(imgId) {
     };
 }
 
-
-function showGallery() { //should change into a global function for everything
-    elGallery.style.display = "flex";
-    elGallery.style.flexDirection = "column";
+function showGallery(){//should change into a global function for everything
+    elGallery.style.display = "inherit";
     elMeme.style.display = "none";
     elMemePopUp.style.display = "none";
     elColorPopUp.style.display = "none";
