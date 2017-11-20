@@ -129,7 +129,8 @@ function drawImgOnCanvas(imgId) {
 }
 
 function showGallery(){//should change into a global function for everything
-    elGallery.style.display = "block";
+    elGallery.style.display = "flex";
+    elGallery.style.flexDirection = "column";
     elMeme.style.display = "none";
     elMemePopUp.style.display = "none";
     elColorPopUp.style.display = "none";
@@ -139,9 +140,9 @@ function showGallery(){//should change into a global function for everything
 
 function showMeme(){
     elGallery.style.display = "none";//the cointener needis to be none as well?????
-    elMeme.style.display = "block";//show meme element
-    elMemePopUp.style.display = "block";//show popup meme elment
-    elColorPopUp.style.display = "block";//show popup color 
+    elMeme.style.display = "flex";//show meme element
+    elMemePopUp.style.display = "flex";//show popup meme elment
+    elColorPopUp.style.display = "flex";//show popup color 
 }
 
 
