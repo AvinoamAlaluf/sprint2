@@ -58,13 +58,15 @@ var memeChoise = {
     url: "img/gallery/danWithBear.jpg",
     fontSize: "16px",
     fontFamily: "Georgia",
-    text: " ",
+    text: "",
     upperCase: false,
     positionX: 10,
     positionY: 50,
     fontColor: "white",
     textAlign: "",
-    id: 0
+    id: 0,
+    fontwight: "",
+    textShadow: false,
 
 }
 
@@ -82,7 +84,7 @@ function init() {
 
 
 function buildGallery(imgs) {
-    showGallery();//show gullery hide meme
+    showGallery(); //show gullery hide meme
     var strHtmls = '';
     imgs.forEach(function (img) {
         console.log(img.url);
@@ -106,43 +108,42 @@ function makeMeme(imgId) {
 }
 //CR: instead of paramter work on the global memeChoise
 function drawImgOnCanvas(imgId) {
-    showMeme();//show meme hide gallery
-    var txt = memeChoise.text;
+    showMeme(); //show meme hide gallery
+    var userTextPref = memeChoise.text
+    memeChoise.upperCase ? userTextPref = userTextPref.toUpperCase() : ''; //if upper case
+    //if shadow
     var ctx = gCanvas.getContext('2d');
     var img = new Image();
     img.src = memeChoise.url;
     ctx.clearRect(0, 0, gCanvas.width, gCanvas.height);
+
     img.onload = function () {
         ctx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height);
-        ctx.font = memeChoise.fontSize + " " + memeChoise.fontFamily;
+        ctx.font = memeChoise.fontwight + " " + memeChoise.fontSize + " " + memeChoise.fontFamily;
+        ctx.shadowColor = 'black';
+        memeChoise.textShadow ? ctx.shadowBlur = 30 : ctx.shadowBlur = 0;
         ctx.fillStyle = memeChoise.fontColor;
-        if (memeChoise.upperCase) { //if upper case
-            var upper = txt.toUpperCase();
-            ctx.strokeText(upper, memeChoise.positionX, memeChoise.positionY);
-            ctx.fillText(upper, memeChoise.positionX, memeChoise.positionY);
-        } else { //if not upper case
-            ctx.strokeText(txt, memeChoise.positionX, memeChoise.positionY);
-            ctx.fillText(txt, memeChoise.positionX, memeChoise.positionY);
-
-        };
-    }
+        ctx.strokeText(userTextPref, memeChoise.positionX, memeChoise.positionY);
+        ctx.fillText(userTextPref, memeChoise.positionX, memeChoise.positionY);
+    };
 }
 
-function showGallery(){//should change into a global function for everything
+
+function showGallery() { //should change into a global function for everything
     elGallery.style.display = "flex";
     elGallery.style.flexDirection = "column";
     elMeme.style.display = "none";
     elMemePopUp.style.display = "none";
     elColorPopUp.style.display = "none";
-    elInput.value = '';//clear input value
-    memeChoise.text = '';//reser text
+    elInput.value = ''; //clear input value
+    memeChoise.text = ''; //reser text
 }
 
-function showMeme(){
-    elGallery.style.display = "none";//the cointener needis to be none as well?????
-    elMeme.style.display = "flex";//show meme element
-    elMemePopUp.style.display = "flex";//show popup meme elment
-    elColorPopUp.style.display = "flex";//show popup color 
+function showMeme() {
+    elGallery.style.display = "none"; //the cointener needis to be none as well?????
+    elMeme.style.display = "flex"; //show meme element
+    elMemePopUp.style.display = "flex"; //show popup meme elment
+    elColorPopUp.style.display = "flex"; //show popup color 
 }
 
 
@@ -169,19 +170,27 @@ function changeMemeOb(x) {
         case 'fa fa-arrow-down fa-2x iconSpace':
             memeChoise.positionY = memeChoise.positionY + 2;
             break;
-        case 'arrow-right'://TODO in html
+        case "fa fa-arrow-right fa-2x iconSpace arrowRight":
             memeChoise.positionX = memeChoise.positionX + 2;
             break;
-        case 'arrow-left'://TODO in html 
+        case "fa fa-arrow-left fa-2x iconSpace arrowLeft":
             memeChoise.positionX = memeChoise.positionX - 2;
             break;
         case 'textUppercase':
             memeChoise.upperCase = document.querySelector('.textUppercase').checked;
             break;
-        case 'textSize':
-            memeChoise.fontSize = x.value;
+        case 'textWeight':
+            memeChoise.fontwight = x.value;
             break;
+        case 'textShadow':
+            memeChoise.textShadow = document.querySelector('.textShadow').checked;
+            break;
+        case 'colorPicker':
+            memeChoise.fontColor = x.value;
+            break;
+        
     }
+
 
     drawImgOnCanvas(memeChoise.id);
 
