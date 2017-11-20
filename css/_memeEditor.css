@@ -34,7 +34,7 @@
 }
 
 .canvas-continer{
-    width: 100%;
+    width: 50%;
     margin: 0 auto;    
     border: 1px solid white;
     margin: 5px 0px;
@@ -96,6 +96,9 @@
     text-decoration: none;
     display: block;
     background-color: #279b80;
+}
+.containerGallery{
+    width: 80%;
 }
 
 .dropdown-content a:hover {background-color: #1e6151}

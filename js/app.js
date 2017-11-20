@@ -276,3 +276,12 @@ function downloadImg(elLink) {
     elLink.href = gCanvas.toDataURL();
     elLink.download = 'myMeme.jpg';
 }
+
+function hideAbout(){
+    document.querySelector('.about').style.display = 'none';
+}
+function showAbout(){
+    var elAbout = document.querySelector('.about');
+    elAbout.style.display = 'flex';
+    elAbout.style.flexDirection =  'column';
+}
