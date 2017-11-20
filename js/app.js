@@ -116,7 +116,7 @@ function drawImgOnCanvas(imgId) {
         ctx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height);
         ctx.font = memeChoise.fontSize + " " + memeChoise.fontFamily;
         ctx.fillStyle = memeChoise.fontColor;
-        if (memeChoise.upperCase) { //if upper casa
+        if (memeChoise.upperCase) { //if upper case
             var upper = txt.toUpperCase();
             ctx.strokeText(upper, memeChoise.positionX, memeChoise.positionY);
             ctx.fillText(upper, memeChoise.positionX, memeChoise.positionY);
@@ -177,6 +177,9 @@ function changeMemeOb(x) {
             break;
         case 'textUppercase':
             memeChoise.upperCase = document.querySelector('.textUppercase').checked;
+            break;
+        case 'textSize':
+            memeChoise.fontSize = x.value;
             break;
     }
 
