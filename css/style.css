@@ -17,7 +17,7 @@ body{
 }
 
 
-@media (min-width: 800px){
+@media (min-width: 830px){
     /* NAVBAR */
     .navBar{
         height: 6em;
@@ -25,6 +25,17 @@ body{
     .navList{
         font-size: 1.4em;   
     }
+    .navList li  a{
+        text-decoration: none;
+    }
+    .navList li  a:visited{
+        text-decoration: none;
+        color: white;
+    }
+    .navList li  a:hover{
+        color: var(--liHoverColor);
+    }
+
     /* FOOTER */
     .personDetails p{
         font-size: 1em;
@@ -105,7 +116,16 @@ body{
         color: inherit;    
         border-bottom: 1px solid white;
         outline: none;
+        height: 1.5em;
+        font-size: 1.5em;
     }
+
+    .searchInput::-webkit-input-placeholder{
+        color: white;
+    }
+     
+        
+      
 
 
     /* MEME EDITOR */
@@ -117,6 +137,7 @@ body{
     .memeEditor{
         padding-top: 40px;
         font-size: 1.05em;
+        outline: none;
     }
 
     .memeEditor h2{
@@ -129,4 +150,11 @@ body{
     .about{
         padding: 100px 0;
     }
+    .memeEditorPopup{
+        outline: none;
+    }
+    .colorEditorPopup{
+        outline: none;
+    }
+
 }

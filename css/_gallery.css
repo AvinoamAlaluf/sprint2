@@ -72,4 +72,9 @@
     color: inherit;    
     border-bottom: 1px solid white;
     outline: none;
+    height: 1.5em;
+    font-size: 1.5em;
+}
+.searchInput::-webkit-input-placeholder{
+    color: white;
 }

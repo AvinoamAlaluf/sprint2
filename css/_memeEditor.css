@@ -183,6 +183,7 @@
  .textMoveLines{
      padding: 5px 0;
      margin: 5px 0;
+     outline: none;
  }
 
 .iconSpace{
