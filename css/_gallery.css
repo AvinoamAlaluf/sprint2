@@ -3,7 +3,7 @@
 }
 
 .gallery{
-    width: 100%;
+    width: 98%;
 }
 
 .galleryList{
@@ -15,7 +15,7 @@
 .galleryItem{
     display: flex;
     flex-direction: row;
-    border: 3px solid  lightgray;
+    border: 4px solid  white;
     border-bottom: 0px;
     width: 100%;
 }
@@ -38,20 +38,21 @@
     object-fit: contain;
     /* max-height: 168px; */
     /* max-width: 162px; */
-    border-right: 3px solid  lightgray;
-    border-bottom: 3px solid  lightgray;
+    border-right: 3px solid  white;
     margin:  0px auto;
 }
 
 .textItem{
-    align-self: center;
-    width: 77.7777%; 
+    /* align-self: center; */
+    /* width: 77.7777%;  */
+    display: inline-block;
+    margin: 0 auto;
     max-width: 77.7777%; 
-    font-size: 1.2em;
+    font-size: 1.5em;
     font-family: Lato-Bold;
     color: white; 
     font-weight: bold;
-    margin: 8px;
+    align-self: center;
 }
 
 .searchSector{

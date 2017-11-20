@@ -5,37 +5,37 @@ var ctx;
 var gImgs = [{
         id: 1,
         url: 'img/gallery/1.jpg',
-        text: "dan as worier",
+        text: "Dan as worier",
         keywords: ['strong', 'powerfull', 'sexy','dan' ,'worier']
     },
     {
         id: 2,
         url: 'img/gallery/danWithAHat.jpg',
-        text: "dan With A Hat",
+        text: "Dan With A Hat",
         keywords: ['peaceful', 'sweet', 'nice','dan', 'hat']
     },
     {
         id: 3,
         url: 'img/gallery/danWithBear.jpg',
-        text: "dan With Bear",
+        text: "Dan With Bear",
         keywords: ['satisfied', 'happy','dan','bear']
     },
     {
         id: 4,
         url: 'img/gallery/yaronAndAsafWithSpoons.jpg',
-        text: "yaron And Asaf With Spoons",
+        text: "Spoons Party",
         keywords: ['happy', 'satisfied', 'weired','yaron','asaf', 'spoons']
     },
     {
         id: 5,
         url: 'img/gallery/yaronSurprised.jpg',
-        text: "yaron Surprised",
+        text: "Yaron Surprised",
         keywords: ['surprised', 'investigator','yaron']
     },
     {
         id: 6,
         url: 'img/gallery/yaronWithPhone.jpg',
-        text: "yaron With Phone",
+        text: "Yaron With Phone",
         keywords: ['tech','oriented', 'inspiring', 'strong','yaron', 'phone']
     }
 ];
