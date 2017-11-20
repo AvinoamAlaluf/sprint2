@@ -55,13 +55,18 @@
 }
 
 .searchSector{
+    width: 80%;
+    margin: 0 auto;
     align-self: center;
     font-family: Lato-Regular;
     color: white;    
+    padding-bottom: 40px;
+    padding-top: 25px;
 }
 
 .searchInput{
-    background-color:lightgray;
+    width: 100%;
+    background-color:transparent;
     margin: 0px auto;
     border: transparent;
     color: inherit;    

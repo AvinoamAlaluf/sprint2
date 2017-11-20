@@ -18,9 +18,13 @@
     <div class="container">
         <nav class="navBar">
             <ul class="navList">
-                <li>Portfolio</li>
+                <li>
+                    <a href="#about" onclick="showGallery()">Gallery</a>
+                </li>
                 <li class="navDot">·</li>
-                <li>About</li>
+                <li>
+                    <a href="#about" onclick="showAbout()">About</a>
+                </li>
                 <li class="navLogo">
                     <img src="img/navbar/NavArrow.png" />
                 </li>
@@ -36,15 +40,17 @@
         <hr class="navHr">
     </div>
 
-    <div class="container">
-        <div class="searchSector">
-            <label>Search : </label>
-            <input class="searchInput" type="text" placeholder="Search A Meme" onchange="filterGallery(this.value)" />
-        </div>
-    </div>
+
 
     <div class="container containerGallery">
-        <div class="gallery galleryDesktop"></div>
+        <div class="container">
+            <div class="searchSector">
+                <input class="searchInput" type="text" placeholder="Search A Meme" onchange="filterGallery(this.value)" />
+            </div>
+        </div>
+        <div class="gallery galleryDesktop">
+
+        </div>
     </div>
 
     <!-- NEED TO FIX SIZING AND NAME OF WHAT IS CURRENTLY FOOTER -->
@@ -53,15 +59,13 @@
         <div class="memeEditor">
             <h2>Meme It</h2>
             <div class="toolBar">
-                <i class="fa fa-long-arrow-left fa-2x" onclick="showGallery()" aria-hidden="true"> Back To Gallery</i>
+                <i class="fa fa-long-arrow-left fa-2x backToGallery" onclick="showGallery()" aria-hidden="true"> Back To Gallery</i>
             </div>
             <div class="canvas-continer">
                 <canvas class="canvasInEditor" crossOrigin="Anonymous"></canvas>
-                <input class="canvas-text" oninput="inputText()" type="text" />
+                <input class="canvas-text" oninput="inputText()" type="text" placeholder="Enter Your Text Here" />
             </div>
-            <a href="#" id="download" class="saveButton" onclick="downloadImg(this)">
-                <i class="fa fa-floppy-o fa-2x saveButton" aria-hidden="true"></i>
-            </a>
+
         </div>
     </div>
 
@@ -69,6 +73,8 @@
     <div class="container">
         <div class="memeEditorPopup">
             <div class="textSizeEditor">
+                
+                <br>
                 Text-Size:
                 <input type="radio" name="textSize" class="textSize" value="15px" onclick=changeMemeOb(this) checked> Small
                 <input type="radio" name="textSize" class="textSize" value="25px" onclick=changeMemeOb(this)> Standart
@@ -84,10 +90,11 @@
             <div class="textUppercaseEditor">
                 Upper-Case:
                 <input type="checkbox" class="textUppercase" onclick=changeMemeOb(this)>
-            </div>
-            <div class="textUppercaseEditor">
                 Text-Shadow:
                 <input type="checkbox" class="textShadow" onclick=changeMemeOb(this)>
+            </div>
+            <div class="textUppercaseEditor">
+                
             </div>
             <div class="textMoveLines">
                 Move The Text Box:
@@ -97,7 +104,7 @@
                 <i class="fa fa-arrow-right fa-2x iconSpace arrowRight" onclick=changeMemeOb(this) aria-hidden="true"></i>
             </div>
             <div class="textBoxActions">
-             <!--   Add/Remove Text Box:
+                <!--   Add/Remove Text Box:
                 <i class="fa fa-trash-o fa-2x iconSpace" aria-hidden="true"></i>
                 <i class="fa fa-plus fa-2x iconSpace" aria-hidden="true"></i>-->
             </div>
@@ -113,7 +120,7 @@
             </div>
             <div class="textEditorButtons">
                 <!-- BtnOK SHOULD CAHNGE THE CANVAS BY THE ".memeEditorPopup" SETTINGS -->
-              <!--  <span class="btnOk" onclick="toggleMemeEditorPopup()">Ok</span>
+                <!--  <span class="btnOk" onclick="toggleMemeEditorPopup()">Ok</span>
                 <span class="btnCancle" onclick="toggleMemeEditorPopup()">Cancle</span>-->
             </div>
         </div>
@@ -124,14 +131,17 @@
             <input type="color" class="colorPicker" onchange="changeMemeOb(this)">
             <div class="colorEditorButtons ">
                 <!-- BtnOK SHOULD CAHNGE THE CANVAS BY THE ".memeEditorPopup" SETTINGS -->
-               <!-- <span class="btnOk" onclick="toggleColorEditorPopup() ">Ok</span>
+                <!-- <span class="btnOk" onclick="toggleColorEditorPopup() ">Ok</span>
                 <span class="btnCancle" onclick="toggleColorEditorPopup()">Cancle</span>-->
+                <a href="#" id="download" class="saveButton" onclick="downloadImg(this)">
+                        <i class="fa fa-floppy-o fa-2x saveButton" aria-hidden="true"></i>
+                    </a>
             </div>
         </div>
     </div>
 
     <div class="container">
-        <div class="about">
+        <div class="about" id="about">
             <div class="card-person">
                 <div class="imgBox">
                     <img src="img/crew/pictureAvinoam.jpg" />

@@ -7,14 +7,22 @@
     align-items: center;
     font-family: Lato-Bold;
     color: white;
-    padding-bottom: 10px;
+    padding-bottom: 30px;
+    padding-top: 40px;
 }
 
 .memeEditor h2{
-    font-size: 1.2em;
+    font-size: 3em;
     padding: 5px 0px;
+    padding-bottom: 20px;
 }
-
+.backToGallery{
+    font-size:1.3em;
+    padding: 5px 20px;
+    border: 1.5px solid white;
+    border-radius: 25px;
+    background: #1e6151;
+}
 .toolBar{
     width: 90%;
     display: flex;
@@ -30,13 +38,14 @@
 }
 
 .canvasInEditor{
-    width: 100%;  
+    width: 100%;
+    border: 6px solid #1e6151;
+    border-radius: 15px;
 }
 
 .canvas-continer{
     width: 50%;
     margin: 0 auto;    
-    border: 1px solid white;
     margin: 5px 0px;
     position: relative;
 
@@ -44,8 +53,14 @@
 }
 
 .canvas-text{
-    position: absolute;
-    background-color: transparent;
+    margin-top: 15px;
+    width: 100%;
+    background: #1e6151;
+    padding: 5px 2px;
+    border: 0px;
+    border-bottom: 3px solid white;
+    border-radius: 25px;
+    color: white;
 }
 
 /* ////////CANVAS EDITOR POPUPS /////////// */
@@ -138,6 +153,13 @@
     background-color: #1e6151;
     outline: none;
 }
+.colorEditorPopup span{
+    padding-bottom: 10px;
+}
+
+.textUppercaseEditor input{
+    /* padding: 2px 20px; */
+}
 
 .colorEditorPopup:changed{
     outline: none;
@@ -174,4 +196,5 @@
 .saveButton{
     text-decoration: none;
     color: inherit;
+    margin: 0 auto;
 }

@@ -76,15 +76,18 @@ var elMeme = document.querySelector('.memeEditor');
 var elMemePopUp = document.querySelector('.memeEditorPopup');
 var elColorPopUp = document.querySelector('.colorEditorPopup');
 var elInput = document.querySelector('.canvas-text');
+var elSearchSector = document.querySelector('.searchSector');
 gCanvas.width = 300;
 gCanvas.height = 300;
 function init() {
     buildGallery(gImgs);
+
     //drawOnCanvas(memeChoise);
 }
 
 
 function buildGallery(imgs) {
+    hideAbout();
     showGallery(); //show gullery hide meme
     var strHtmls = '';
     imgs.forEach(function (img) {
@@ -109,6 +112,7 @@ function makeMeme(imgId) {
 }
 //CR: instead of paramter work on the global memeChoise
 function drawImgOnCanvas(imgId) {
+    hideAbout();
     showMeme(); //show meme hide gallery
     var userTextPref = memeChoise.text
     memeChoise.upperCase ? userTextPref = userTextPref.toUpperCase() : ''; //if upper case
@@ -130,6 +134,9 @@ function drawImgOnCanvas(imgId) {
 }
 
 function showGallery(){//should change into a global function for everything
+    hideAbout()
+    elSearchSector.style.display = "block";
+    elSearchSector.style.margin = "0 auto";
     elGallery.style.display = "inherit";
     elMeme.style.display = "none";
     elMemePopUp.style.display = "none";
@@ -139,6 +146,7 @@ function showGallery(){//should change into a global function for everything
 }
 
 function showMeme() {
+    elSearchSector.style.display = "none";
     elGallery.style.display = "none"; //the cointener needis to be none as well?????
     elMeme.style.display = "flex"; //show meme element
     elMemePopUp.style.display = "flex"; //show popup meme elment
@@ -281,7 +289,13 @@ function downloadImg(link) {
 function hideAbout(){
     document.querySelector('.about').style.display = 'none';
 }
+
 function showAbout(){
+    elSearchSector.style.display = "none";
+    elMeme.style.display = "none";
+    elMemePopUp.style.display = "none";
+    elColorPopUp.style.display = "none";
+    elGallery.style.display = "none";
     var elAbout = document.querySelector('.about');
     elAbout.style.display = 'flex';
     elAbout.style.flexDirection =  'column';
