@@ -49,7 +49,7 @@
 
     <!-- NEED TO FIX SIZING AND NAME OF WHAT IS CURRENTLY FOOTER -->
 
-    <hr>
+    
     <div class="container">
         <div class="memeEditor">
             <h2>Meme It</h2>
@@ -57,7 +57,7 @@
                 <i class="fa fa-long-arrow-left fa-2x" onclick="showGallery()" aria-hidden="true"> Back To Gallery</i>
             </div>
             <div class="canvas-continer">
-                <canvas class="canvasInEditor"></canvas>
+                <canvas class="canvasInEditor" crossOrigin="Anonymous"></canvas>
                 <input class="canvas-text" oninput="inputText()" type="text" />
             </div>
             <a href="#" id="download" class="saveButton" onclick="downloadImg(this)">

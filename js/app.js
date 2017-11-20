@@ -76,7 +76,8 @@ var elMeme = document.querySelector('.memeEditor');
 var elMemePopUp = document.querySelector('.memeEditorPopup');
 var elColorPopUp = document.querySelector('.colorEditorPopup');
 var elInput = document.querySelector('.canvas-text');
-
+gCanvas.width = 300;
+gCanvas.height = 300;
 function init() {
     buildGallery(gImgs);
     //drawOnCanvas(memeChoise);
@@ -272,7 +273,7 @@ function makeKeywordsBigger() { //only takes place in div class="keywordsPopular
     elKeywordsPopularity.innerHTML = strHtml;
 }
 
-function downloadImg(elLink) {
-    elLink.href = gCanvas.toDataURL();
-    elLink.download = 'myMeme.jpg';
+function downloadImg(link) {
+    link.href = gCanvas.toDataURL();
+    link.download = 'myMeme.jpg';
 }
